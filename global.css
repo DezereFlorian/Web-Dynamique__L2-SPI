@@ -119,7 +119,7 @@ table img{
     width:50px;
 }
 section a:visited{
-    color:blue;
+    color:red;
 }
 section a:hover{
     font-weight:bold;
