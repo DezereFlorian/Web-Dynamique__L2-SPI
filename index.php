@@ -38,7 +38,7 @@
             $id = $unJeu['IDJeux'];
             $nom = $unJeu['Nom'];
             $prix = $unJeu['Prix'];
-            $img = $unJeu['Image'];
+            $img = "images/".$unJeu['Image'];
             $link = "jeux.php?id=$id";
     ?>
         
@@ -62,7 +62,7 @@
         foreach($lstSortie as $uneSortie):
             $id = $uneSortie['IDJeux'];
             $nom = $uneSortie['Nom'];
-            $img = $uneSortie['Image'];
+            $img = "images/".$uneSortie['Image'];
             $date = dateFR($uneSortie['DateDeSortie']);
             $link = "jeux.php?id=$id";
             
