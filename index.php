@@ -26,6 +26,11 @@
     }
 ?>
 <article>
+    
+    <p>
+        Bonjour et bienvenue sur le site de Vull !<br/>
+        Nous vous présentons moult jeux, du simple jeu de société, au dernier jeu vidéo !
+    </p>
     <?php
         $date=date("Y-m-d");
         $lstJeux = Jeux5($date);
