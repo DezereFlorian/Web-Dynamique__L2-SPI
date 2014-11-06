@@ -6,6 +6,9 @@
         Purpose of the stylesheet follows.
 */
 
+html {
+    background-color: navy;
+}
 body{
     width:70%;
     margin: auto;
