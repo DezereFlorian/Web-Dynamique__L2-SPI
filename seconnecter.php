@@ -1,8 +1,92 @@
-<?php
+<?php 
     include_once('entete.php');
 ?>
-
-
+<div align="center">
+    <div id="connection">
+        <form id="formconnect">
+        <fieldset>
+            <legend align='center'> Connexion </legend>
+            <label for="utilisateur">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pseudo :&nbsp;</label><input type="text" name="pseudo" id="pseudoCo" required /><br /><br />
+            <label for="motdepasse">Mot de passe :&nbsp;</label><input type="password" name="mdp" id="mdpCo" required/><br /><br />
+            <input type="button" onclick="connexion();" value="Connexion" id="connect"/>
+        </fieldset>
+        </form>
+    </div>
+    <div id="inscription">
+        <form id="forminscription">
+        <fieldset>
+            <legend align="center"> Inscription </legend>
+            <label for="mail">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E-mail :&nbsp;</label><input type="text" name="mail" id="mail" required/><br/><br/>
+            <label for="utilisateur">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pseudo :&nbsp;</label><input type="text" name="pseudo" id="pseudo" required /><br /><br />
+            <label for="motdepasse">Mot de passe :&nbsp;</label><input type="password" name="mdp" id="mdp" required/><br /><br />
+            <label for="nom">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nom :&nbsp;</label><input type="text" name="nom" id="nom" required/><br /><br />
+            <label for="prenom">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prénom :&nbsp;</label><input type="text" name="prenom" id="prenom" required/><br /><br />
+            <label for="adresse">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresse :&nbsp;</label><input type="text" name="adresse" id="adresse" required/><br /><br />
+            <input type="button" onclick="verif();" value="Inscription" id="newmember"/>
+        </fieldset>
+        </form>
+    </div>
+</div>
 <?php
     include_once('foot.php');
 ?>
+<script>
+    function verif(){
+        var mail = $('input[name=mail]').val();
+        var exp = new RegExp("^[a-z0-9]{2,}([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$","gi");
+        if(exp.test(mail)){
+            inscription();
+            return true;
+        }
+        else{
+            alert('Adresse mail non valide !');
+            return false;
+        }
+    }
+    function connexion(){
+        var pseudo = $('#pseudoCo').val();
+        var mdp = $('#mdpCo').val();
+        $.ajax({
+              type:'POST',
+              url:'verifConnexion.php',
+              data:{
+                  status : 1,
+                  pseudo : pseudo,
+                  mdp : mdp
+              },
+              success: function(data,textStatus,jqXHR){
+                    $(data).prependTo('#connection');
+              },
+              error: function(jqXHR, textStatus,errorThrown){
+                  alert('une erreur s\'est produite');
+              }
+            });
+        }
+    function inscription(){
+        var mail = $('#mail').val();
+        var pseudo = $('#pseudo').val();
+        var mdp = $('#mdp').val();
+        var nom = $('#nom').val();
+        var prenom = $('#prenom').val();
+        var adresse = $('#adresse').val();
+        $.ajax({
+              type:'POST',
+              url:'verifConnexion.php',
+              data:{
+                  status : 2,
+                  mail : mail,
+                  pseudo : pseudo,
+                  mdp : mdp,
+                  nom : nom,
+                  prenom : prenom,
+                  adresse : adresse
+              },
+              success: function(data,textStatus,jqXHR){
+                    $(data).prependTo('#inscription');
+              },
+              error: function(jqXHR, textStatus,errorThrown){
+                  alert('une erreur s\'est produite');
+              }
+            });
+        }
+</script>
