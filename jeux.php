@@ -1,14 +1,14 @@
 <?php
     include_once('entete.php');
     
-    function get_jeux(){
+    function get_jeux(){ //récupère tous les jeux
         global $bdd;
         $req = $bdd -> prepare("SELECT * from jeux as j, categorie as c, age as a where j.IDCateg = c.IDCategorie and j.IDAge = a.IDAge order by DateDeSortie;");
         $req -> execute();
         $get_jeux = $req -> fetchAll();
         return $get_jeux;
     }
-    function dateFR($datePHP1)
+    function dateFR($datePHP1) // transforme la date anglaise (de la base) en date française
     {
         list($AAAA, $MM, $JJ) = explode("-", $datePHP1);
         $datePHP2 = $JJ."-".$MM."-".$AAAA;
@@ -16,7 +16,10 @@
         return $datePHP2;
     }
     
-    $lstJeux = get_jeux();
+    $lstJeux = get_jeux(); // lance la fonction de récupération des jeux
+
+    
+    // affichage du tableau avec tous les jeux
     ?>
 <table>
     <tr>

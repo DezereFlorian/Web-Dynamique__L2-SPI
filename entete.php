@@ -1,6 +1,6 @@
 <?php
     include_once('connexion.php');
-    $connect = 1;
+    $connect = 1; // vérifie si on est connecté, afin d'afficher le menu de ça
 ?>
 <html>
     <head>
@@ -11,7 +11,7 @@
     </head>
     <banniere></banniere>
     <body>
-    <nav>
+    <nav> <!-- menu -->
         <ul>
             <li><a href="./index.php"> Accueil </a></li>
             <li>
