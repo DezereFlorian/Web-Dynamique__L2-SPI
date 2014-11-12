@@ -46,7 +46,7 @@
     ?>
         <tr>
             <td><span class="cache"><?php echo $id; ?></span><?php echo $nom; ?></td> <!-- mets le span en caché avec visibility : hidden -->
-            <td><img src="<?php echo $img; ?>"/>Yop</td>
+            <td><img src="<?php echo $img; ?>"/></td>
             <td><?php echo $desc; ?></td>
             <td><?php echo $sortie; ?></td>
             <td><?php echo $prix; ?></td>
