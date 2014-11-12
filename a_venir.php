@@ -38,6 +38,7 @@
             $nom = $unJeu['NomJeu'];
             $desc = $unJeu['Descriptif'];
             $prix = $unJeu['Prix'];
+            $stock = $unJeu['Stock'];
             $img = "images/".$unJeu['Image'];
             $sortie = dateFR($unJeu['DateDeSortie']);
             $categ = $unJeu['NomCateg'];
@@ -45,14 +46,20 @@
 // affichage de chaque jeu
     ?>
         <tr>
-            <td><span class="cache"><?php echo $id; ?></span><?php echo $nom; ?></td> <!-- mets le span en caché avec visibility : hidden -->
-            <td><img src="<?php echo $img; ?>"/></td>
+            <td><span class="cache"><?php echo $id; ?></span><a class="liendetail" href="detail_jeu.php?id=<?php echo $id; ?>"><?php echo $nom; ?></a></td> <!-- mets le span en caché avec visibility : hidden -->
+            <td><a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><img src="<?php echo $img; ?>"/></a></td>
             <td><?php echo $desc; ?></td>
             <td><?php echo $sortie; ?></td>
             <td><?php echo $prix; ?></td>
             <td><?php echo $categ; ?></td>
             <td><?php echo $age; ?></td>
-            <td class='cachepanier'><img id='addpanier' src='images/panier_fleche.jpg'/></td> <!-- ajout au panier via jQuery -->
+            <td class='cachepanier'>
+                <?php if($stock > 0): ?>
+                    <img id='addpanier' src='images/panier_fleche.jpg'/>
+                <?php else: ?>
+                    Indisponible
+                <?php endif; ?>
+            </td> <!-- ajout au panier via jQuery -->
         </tr>
     <?php
         endforeach;
