@@ -3,7 +3,7 @@
     
     function get_jeux($date){ //récupère tous les jeux
         global $bdd;
-        $req = $bdd -> prepare("SELECT * from jeux as j, categorie as c, age as a where DateDeSortie > $date and j.IDCateg = c.IDCategorie and j.IDAge = a.IDAge order by DateDeSortie;");
+        $req = $bdd -> prepare("SELECT * from jeux as j, categorie as c, age as a where DateDeSortie > '$date' and j.IDCateg = c.IDCategorie and j.IDAge = a.IDAge order by DateDeSortie;");
         $req -> execute();
         $get_jeux = $req -> fetchAll();
         return $get_jeux;
