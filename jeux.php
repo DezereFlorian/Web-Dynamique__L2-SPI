@@ -1,4 +1,4 @@
-<?php
+    <?php
     include_once('entete.php');
     
     function get_jeux(){ //récupère tous les jeux
@@ -52,10 +52,13 @@
             <td><?php echo $prix; ?></td>
             <td><?php echo $categ; ?></td>
             <td><?php echo $age; ?></td>
-            <td><button onclick="setPanier();">Ajouter au panier</button></td> <!-- ajout au panier via jQuery -->
+            <td class="cachepanier"><button onclick="setPanier();">Ajouter au panier</button></td> <!-- ajout au panier via jQuery -->
         </tr>
     <?php
         endforeach;
     ?>
 </table>
 
+<?php
+    include_once('foot.php');
+?>
