@@ -45,14 +45,14 @@
 // affichage de chaque jeu
     ?>
         <tr>
-            <td><span class="cache"></span><?php echo $nom; ?></td> <!-- mets le span en caché avec visibility : hidden -->
-            <td><img src="<?php $img; ?>"/>Yop</td>
+            <td><span class="cache"><?php echo $id; ?></span><?php echo $nom; ?></td> <!-- mets le span en caché avec visibility : hidden -->
+            <td><img src="<?php echo $img; ?>"/></td>
             <td><?php echo $desc; ?></td>
             <td><?php echo $sortie; ?></td>
             <td><?php echo $prix; ?></td>
             <td><?php echo $categ; ?></td>
             <td><?php echo $age; ?></td>
-            <td class="cachepanier"><button onclick="setPanier();">Ajouter au panier</button></td> <!-- ajout au panier via jQuery -->
+            <td class="cachepanier"><img id='addpanier' src='images/panier_fleche.jpg'/></td> <!-- ajout au panier via jQuery -->
         </tr>
     <?php
         endforeach;
