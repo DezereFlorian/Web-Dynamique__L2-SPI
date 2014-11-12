@@ -7,7 +7,7 @@
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
      <link rel="stylesheet"  media="screen" type="text/css" title="design" href="global.css"/>
     <title>Ludotheque de Vull</title>
-    
+    <link rel="shortcut icon" href="./images/icon_site.jpg" type="image/x-icon" /> 
     </head>
     <banniere></banniere>
     <body>
