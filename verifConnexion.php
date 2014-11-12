@@ -60,7 +60,7 @@ if ($_POST['status']==1):
                 endif;
                 echo "<script>alert('Vous \u00eates connect\u00e9'); var adresse = 'index.php'; window.location = adresse;</script>";
             else:
-                echo "<p align=center>Vous n'avez pas saisi les bons identifiants</p>";
+                echo "<script>alert('Vous n\'avez pas saisi les bons identifiants);</script>";
             endif;
     endif;
 else:
@@ -73,9 +73,9 @@ else:
         $adresse = (isset($_POST["adresse"])) ? addslashes($_POST["adresse"]) : NULL;
         $test = get_verify($pseudo,$mail);
         if($test==2):
-            echo "<script>$('<p align=center>L\'adresse mail est déjà utilisée</p>').prependTo('#inscription');</script>";
+            echo "<script>alertt('L\'adresse mail est déjà utilis\u00e9e');</script>";
         elseif($test==1):
-            echo "<script>$('<p align=center>Le pseudo est déjà utilisé</p>').prependTo('#inscription');</script>";
+            echo "<script>alert('Le pseudo est d\u00e9j\u00e0 utilis\u00e9</p>');</script>";
         else:
             $codeActivation = '';
             for($i=1;$i<=10;$i++):

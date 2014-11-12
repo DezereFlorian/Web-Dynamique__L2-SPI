@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 12 Novembre 2014 à 09:26
+-- Généré le :  Mer 12 Novembre 2014 à 13:22
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -82,8 +82,18 @@ CREATE TABLE IF NOT EXISTS `client` (
   `Pseudo` varchar(30) NOT NULL,
   `Mdp` varchar(30) NOT NULL,
   `Adresse` varchar(100) NOT NULL,
+  `CodeActivation` int(10) NOT NULL,
+  `ClientActif` tinyint(1) NOT NULL,
   UNIQUE KEY `ID` (`IDClient`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `client`
+--
+
+INSERT INTO `client` (`IDClient`, `Nom`, `Prenom`, `AdresseMail`, `Pseudo`, `Mdp`, `Adresse`, `CodeActivation`, `ClientActif`) VALUES
+(1, 'Dezere', 'Florian', 'florian.dezere@gmail.com', 'Bull', 'technoki', '359 bis rue de Sablé 72000 Le Mans', 2147483647, 0),
+(2, 'Provost', 'Valentin', 'Valent72-1706@hotmail.fr', 'Chouwibaka', 'alizee', '15 cour Charles Delescluze 72100 Le Mans', 2147483647, 0);
 
 -- --------------------------------------------------------
 
@@ -142,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `jeux` (
 
 INSERT INTO `jeux` (`IDJeux`, `NomJeu`, `Descriptif`, `Prix`, `Image`, `DateDeSortie`, `Stock`, `IDCateg`, `IDAge`) VALUES
 (2, 'Uno', 'Jeu de carte très sympathique, peut se jouer de 2 à 6 joueurs', '9.99', 'uno.jpg', '2006-08-20', 50, 1, 2),
-(3, 'Tomb Raider', 'Tomb Raider, le dernier.\r\nAvec des boobs et des fesses. Et aussi des jolis paysages (éventuellement).', '13.99', 'tombraider.jpg', '2012-07-01', 30, 2, 6),
+(3, 'Tomb Raider', 'Tomb Raider, le dernier.\r\nAvec des boobs et des fesses. Et aussi des jolis paysages (éventuellement).', '13.99', 'tombraider.jpg', '2012-07-01', 0, 2, 6),
 (5, 'Call of Duty Bie-Zom', 'Le nouveau Call of Duty.', '74.99', 'codbison.jpg', '2015-03-25', 500, 2, 6);
 
 --
