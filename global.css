@@ -108,6 +108,7 @@ copyright{
     color: black;
     width: 90%;
     text-align: center;
+    font-family: Corbel;
 }
 table{
     border-collapse: collapse;
@@ -134,6 +135,8 @@ section a:hover{
     text-decoration: underline;
     color: saddlebrown;
     text-decoration-color: red;
+    text-align: inherit;
+    text-align: left;
 }
 
 p{
@@ -149,4 +152,52 @@ p{
     border-right-width: 0;
     border-left-width: 0;
     border-top-width: 0;
+    font-size: 12pt;
+    font-weight: bold;
+    font-family: Comic sans MS, Times New Roman;
+}
+
+.contenu_case{
+    font-family: Arial Narrow;
+    text-decoration: inherit;
+}
+
+.titre_case{
+    font-family: Comic Sans MS;
+    text-decoration: underline;
+}
+
+.bienvenue{
+    text-align: center;
+    text-decoration: none;
+}
+
+.bienvenue .para_acceuil{ 
+    font-size: 25pt;
+}
+
+.bienvenue .lienbasique{
+    text-align: left;
+}
+
+#connection, #inscription{
+    font-size: 10pt;
+    font-family: Calibri;
+}
+
+legend{
+    font-size: 15pt;
+    font-family: Comic Sans MS;
+}
+
+
+input{
+    background-color: darkgray;
+    color: navy;
+}
+
+.liendetail, .liendetail:visited{
+    text-decoration: none;
+    color: midnightblue;
+    font-size: 14pt;
 }

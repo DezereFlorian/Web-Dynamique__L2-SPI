@@ -22,7 +22,7 @@
     // affichage du tableau avec tous les jeux
     ?>
 <table>
-    <tr>
+    <tr class='titre_case'>
         <th>Nom</th>
         <th>Image</th>
         <th>Description</th>
@@ -48,11 +48,11 @@
         <tr>
             <td><span class="cache"><?php echo $id; ?></span><a class="liendetail" href="detail_jeu.php?id=<?php echo $id; ?>"><?php echo $nom; ?></a></td> <!-- mets le span en caché avec visibility : hidden -->
             <td><a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><img src="<?php echo $img; ?>"/></a></td>
-            <td><?php echo $desc; ?></td>
-            <td><?php echo $sortie; ?></td>
-            <td><?php echo $prix; ?></td>
-            <td><?php echo $categ; ?></td>
-            <td><?php echo $age; ?></td>
+            <td class='contenu_case'><?php echo $desc; ?></td>
+            <td class='contenu_case'><?php echo $sortie; ?></td>
+            <td class='contenu_case'><?php echo $prix; ?></td>
+            <td class='contenu_case'><?php echo $categ; ?></td>
+            <td class='contenu_case'><?php echo $age; ?></td>
             <td class='cachepanier'>
                 <?php if($stock > 0): ?>
                     <img id='addpanier' src='images/panier_fleche.jpg'/>

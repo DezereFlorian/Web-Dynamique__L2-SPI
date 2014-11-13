@@ -25,9 +25,9 @@
         return $datePHP2;
     }
 ?>
-<article>
+<article class='bienvenue'>
     
-    <p>
+    <p class='para_acceuil'>
         Bonjour et bienvenue sur le site de Vull !<br/>
         Nous vous présentons moult jeux, du simple jeu de société, au dernier jeu vidéo !
     </p>
@@ -49,7 +49,7 @@
             //affichage de chaque jeu
     ?>
         
-            <a href="<?php echo $link;?>"><td>
+            <a href="<?php echo $link;?>"><td class='contenu_case'>
                 <img src="<?php echo $img;?>" alt="miniature de <?php echo $nom; ?>" class="miniature"/><br/>
                 <span class="nomnew"><?php echo $nom;?></span><br/>
                 <span class="prixnew"><?php echo $prix;?></span>
@@ -76,7 +76,7 @@
             //affichage de chaque jeu        
     ?>
         
-        <a href="<?php echo $link;?>"><td>
+        <a href="<?php echo $link;?>"><td class='contenu_case'>
                 <img src="<?php echo $img;?>" alt="miniature de <?php echo $nom;?>" class="miniature"/><br/>
                 <span class="nomnew"><?php echo $nom;?></span><br/>
                 <span class="sortienew"><?php echo $date;?></span>
