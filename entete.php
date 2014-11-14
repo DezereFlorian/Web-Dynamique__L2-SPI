@@ -24,8 +24,8 @@
     <link rel="shortcut icon" href="./images/icon_site.jpg" type="image/x-icon" /> 
     <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
     </head>
-    <banniere></banniere>
     <body>
+    <banniere></banniere>
     <nav> <!-- menu -->
         <ul>
             <li><a href="./index.php"> Accueil </a></li>
@@ -45,4 +45,7 @@
         <?php endif;?>
         </ul>
     </nav>
+    <?php if ($connect != 0): ?>
+        <marquee>Bienvenue <?php echo $_SESSION['pseudo']; ?>, vous pouvez maintenant passer commande</marquee>
+    <?php endif; ?>
         <section>
