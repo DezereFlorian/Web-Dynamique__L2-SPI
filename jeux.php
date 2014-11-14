@@ -69,3 +69,23 @@
 <?php
     include_once('foot.php');
 ?>
+
+<script>
+    $("#addpanier").click(function (){
+        var id = $("#addpanier").prev(".cache").val();
+        $.ajax({
+                  type:'POST',
+                  url:'gestpanier.php',
+                  data:{
+                      status : 1,
+                      id : id
+                  },
+                  success: function(data,textStatus,jqXHR){
+                        $(data).prependTo('table');
+                  },
+                  error: function(jqXHR, textStatus,errorThrown){
+                      alert('une erreur s\'est produite');
+                  }
+                });
+    });
+</script>

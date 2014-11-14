@@ -53,6 +53,7 @@ if ($_POST['status']==1):
             if (!empty($verif['IDClient'])):
                 $_SESSION['pseudo'] = $verif['Pseudo'];
                 $_SESSION['id'] = $verif['IDClient'];
+                $_SESSION['panier'] = array();
                 if($verif['ClientActif']==0):
                     $_SESSION['actif'] = 0;
                 else:

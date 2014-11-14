@@ -46,6 +46,6 @@
         </ul>
     </nav>
     <?php if ($connect != 0): ?>
-        <marquee>Bienvenue <?php echo $_SESSION['pseudo']; ?>, vous pouvez maintenant passer commande</marquee>
+        <marquee>Bienvenue <?php echo $_SESSION['pseudo']; ?>, vous pouvez maintenant passer commande.</marquee>
     <?php endif; ?>
         <section>
