@@ -139,10 +139,6 @@ article .lienbasique, .lienbasique:visited {
     display: inline-block;
 }
 
-p{
-    text-decoration: underline;
-}
-
 .cache {
     visibility: hidden;
 }
