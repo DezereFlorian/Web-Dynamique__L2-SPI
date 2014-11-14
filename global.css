@@ -131,7 +131,7 @@ section a:hover{
     font-weight:bold;
 }
 
-article .lienbasique, .lienbasique:visited {
+.lienbasique, .lienbasique:visited {
     text-decoration: underline;
     color: saddlebrown;
     text-decoration-color: red;
@@ -161,6 +161,7 @@ article .lienbasique, .lienbasique:visited {
 .titre_case{
     font-family: Comic Sans MS;
     text-decoration: underline;
+    font-size: 15px;
 }
 
 .bienvenue{
@@ -192,4 +193,11 @@ input{
     text-decoration: none;
     color: midnightblue;
     font-size: 14pt;
+}
+
+.hidden{
+    border-bottom-width: 0;
+    border-right-width: 0;
+    border-left-width: 0;
+    border-top-width: 0;
 }

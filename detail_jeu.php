@@ -24,25 +24,33 @@
 
 <table>
     <tr class='titre_case'>
-        <td><?php echo $nom;?></td>
+        <td class='hidden' rawspan='2'><?php echo $nom;?></td>
     </tr>
     <tr>
-        <td><?php echo $img; ?></td>
+        <td class='hidden' rawspan='2'><?php echo $img; ?></td>
     </tr>
     <tr>
-        <td><?php echo $desc;?></td>
+        <td class='hidden' rawspan='2'><?php echo $desc;?></td>  
     </tr>
     <tr>
-        <td><?php echo $prix; ?> €</td>
+        
     </tr>
     <tr>
-        <td><?php echo $date; ?></td>
+        <td class='hidden'><?php echo $age; ?> ans</td>
+        <td class='hidden'><?php echo $categ; ?></td> 
     </tr>
     <tr>
-        <td><?php echo $categ; ?></td>
+        <td class='hidden'><?php echo $date; ?></td>
     </tr>
     <tr>
-        <td><?php echo $age; ?></td>
+        <td class='hidden'>
+            <?php if ($stock > 0){
+            echo $prix; ?> €
+            <td class='hidden'><img id='addpanier' src='images/panier_fleche.jpg'/> </td>
+            <?php } else { ?>
+            Indisponible pour le moment
+            <?php } ?>
+        </td>
     </tr>
 </table>
 
