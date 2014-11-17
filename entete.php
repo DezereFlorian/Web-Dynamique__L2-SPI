@@ -2,11 +2,12 @@
     session_start();
     
     if (isset($_SESSION['id'])):
-        if ($_SESSION['id']==1):
+        /*if ($_SESSION['id']==1):
             $connect=2;
         else:
             $connect=1;
-        endif;
+        endif;*/
+        $connect=1;
     else:
         $connect=0;
     endif;

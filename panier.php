@@ -44,7 +44,7 @@
             <td class='contenu_case'><?php echo $age; ?></td>
             <td class='cachepanier'>
                 <?php if($stock > 0): ?>
-                    <img class='addpanier' id="<?php echo $id ?>" src='images/panier_fleche.jpg'/>
+                    <img class='retirepanier' id="<?php echo $id ?>" src='images/panier_fleche.jpg'/>
                 <?php else: ?>
                     Indisponible
                 <?php endif; ?>
