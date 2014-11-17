@@ -48,12 +48,11 @@
             $link = "jeux.php?id=$id";
             
             //affichage de chaque jeu
-    ?>
-            <a href="<?php echo $link;?>"><td class='contenu_case'>
-                <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><img src="<?php echo $img; ?>"/></a><br/>
-                <span class="nomnew"><?php echo $nom;?></span><br/>
+    ?>      <td>
+                <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><img src="<?php echo $img; ?>"/></a><br/>   
+                <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><span class="nomnew"><?php echo $nom;?></span></a><br/>
                 <span class="prixnew"><?php echo $prix;?></span>
-            </td></a>
+            </td>
         
     <?php
         endforeach;
@@ -63,7 +62,7 @@
     <br/>
     <a href="jeux.php" class="lienbasique">>>Voir tous les jeux<<</a> <!-- redirection vers l'ensemble des jeux sortis -->
     <br/><br/>
-    <table>
+    <table> 
         <tr>
     <?php
         foreach($lstSortie as $uneSortie): // pour chaque jeu associe aux variables d'affichage les variables sortantes de la base
@@ -76,11 +75,11 @@
             //affichage de chaque jeu        
     ?>
         
-        <a href="<?php echo $link;?>"><td class='contenu_case'>
+        <td>
                <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><img src="<?php echo $img; ?>"/></a><br/>
-                <span class="nomnew"><?php echo $nom;?></span><br/>
+               <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><span class="nomnew"><?php echo $nom;?></span></a><br/>
                 <span class="sortienew"><?php echo $date;?></span>
-            </td></a>
+        </td>
         
     <?php
         endforeach;

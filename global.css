@@ -5,16 +5,19 @@
     Description:
         Purpose of the stylesheet follows.
 */
-
+/* definition du css lié au fond du site*/
 html {
     background-color: grey;
+    font-family: Corbel, Comic Sans Ms;
 }
 body{
     width:70%;
     margin: auto;
-    background-color: grey; /* ce background modifie la couleur au-dessus du tablea*/
+    background-color: grey; /* ce background modifie la couleur au-dessus du tableau*/
 }
 
+
+/*definition du css de l'en-tête*/
 banniere {
     background: url("images/banniere.jpg") no-repeat;
     z-index : 50;
@@ -78,7 +81,6 @@ nav ul li:hover ul {
     display:block;
     z-index:3;
 }
-/*coucou mon chou*/
 nav ul li ul {
     position : absolute;
     left:0px;
@@ -93,23 +95,23 @@ section{
     background-color:darkgrey;
     padding:2%;
 }
-
 retour a, retour a:visited{
     text-decoration: none;
     color: black;
     width: 80%;
     text-align: center;
 }
-
 copyright{
     font-weight: bold;
     float: right;
     text-decoration: underline;
     color: black;
-    width: 90%;
+    float: right;
     text-align: center;
-    font-family: Corbel;
 }
+
+
+/* css des tableaux */
 table{
     border-collapse: collapse;
     text-align:center;
@@ -124,14 +126,16 @@ td{
 table img{
     width:50px;
 }
+
+
 section a:visited{
     color:red;
 }
 section a:hover{
     font-weight:bold;
 }
-
-.lienbasique, .lienbasique:visited {
+ /*css servant au lien vers les jeux et vers le detail */
+.lienbasique, .lienbasique:visited, .nomnew {
     text-decoration: underline;
     color: saddlebrown;
     text-decoration-color: red;
@@ -150,16 +154,9 @@ section a:hover{
     border-top-width: 0;
     font-size: 12pt;
     font-weight: bold;
-    font-family: Comic sans MS, Times New Roman;
-}
-
-.contenu_case{
-    font-family: Arial Narrow;
-    text-decoration: inherit;
 }
 
 .titre_case{
-    font-family: Comic Sans MS;
     text-decoration: underline;
     font-size: 15px;
 }
@@ -178,21 +175,9 @@ section a:hover{
     font-family: Calibri;
 }
 
-legend{
-    font-size: 15pt;
-    font-family: Comic Sans MS;
-}
-
-
 input{
     background-color: cadetblue;
     color: white;
-}
-
-.liendetail, .liendetail:visited{
-    text-decoration: none;
-    color: midnightblue;
-    font-size: 14pt;
 }
 
 .hidden{

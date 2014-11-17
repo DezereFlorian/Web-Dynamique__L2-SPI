@@ -1,6 +1,6 @@
     <?php
     include_once('entete.php');
-    
+     
     function get_jeux(){ //récupère tous les jeux
         global $bdd;
         $req = $bdd -> prepare("SELECT * from jeux as j, categorie as c, age as a where j.IDCateg = c.IDCategorie and j.IDAge = a.IDAge order by DateDeSortie;");
