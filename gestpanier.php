@@ -8,19 +8,21 @@ include('connexion.php');
 $idjeu = $_POST["id"];
 
 
-if (isset($_SESSION['id'])):
+if (isset($_SESSION['id'])): 
     if ($_POST['status']==1):
-        if (sizeof($_SESSION['panier'])<=3):
-            $_SESSION['panier'][] = $idjeu;
+        if (sizeof($_SESSION['panier'])<3):
+            if(array_search($idjeu, $_SESSION['panier'])==false):
+                $_SESSION['panier'][] = $idjeu;
+            endif;     
         else:
             echo "<script>if(confirm('Votre panier est plein, vous ne pouvez pas ajouter plus de 3 jeux à votre commande.\nAppuyez sur Ok pour \u00eatre redirig\u00e9 vers votre panier, Annuler pour rester sur cette page.')){var adresse = 'panier.php'; window.location = adresse;};</script>";
         endif;
     else:
         $idjeuretire = array_search($idjeu, $_SESSION['panier']);
         unset($_SESSION['panier'][$idjeuretire]);
+        $_SESSION['panier'] = array_values($_SESSION['panier']);
     endif;
 else:
-    //echo "<script>alert('coucou');</script>";
     ?>
 <script>
     function ok(){
