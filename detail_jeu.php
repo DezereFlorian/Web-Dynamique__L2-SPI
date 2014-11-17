@@ -10,13 +10,24 @@
         $get_jeux = $req -> fetch();
         return $get_jeux;
     }
+    function dateFR($datePHP1) // transforme la date anglaise (de la base) en date française
+    {
+        list($AAAA, $MM, $JJ) = explode("-", $datePHP1);
+        $datePHP2 = $JJ."-".$MM."-".$AAAA;
+
+        return $datePHP2;
+    }
+    
     
     $jeu=get_jeux($idjeu);
+    
+    
+    $id= $jeu['IDJeux'];
     $nom = $jeu['NomJeu'];
     $img = $jeu['Image'];
     $desc = $jeu['Descriptif'];
     $prix = $jeu['Prix'];
-    $date = $jeu['DateDeSortie'];
+    $date = dateFR($jeu['DateDeSortie']);
     $stock = $jeu['Stock'];
     $categ = $jeu['NomCateg'];
     $age = $jeu['TrancheAge'];
@@ -24,13 +35,13 @@
 
 <table>
     <tr class='titre_case'>
-        <td class='hidden' rawspan='2'><?php echo $nom;?></td>
+        <td class='hidden' colspan='2'><?php echo $nom;?></td>
     </tr>
     <tr>
-        <td class='hidden' rawspan='2'><?php echo $img; ?></td>
+        <td class='hidden' colspan='2'><?php echo $img; ?></td>
     </tr>
     <tr>
-        <td class='hidden' rawspan='2'><?php echo $desc;?></td>  
+        <td class='hidden' colspan='2'><?php echo $desc;?></td>  
     </tr>
     <tr>
         
@@ -40,16 +51,16 @@
         <td class='hidden'><?php echo $categ; ?></td> 
     </tr>
     <tr>
-        <td class='hidden'><?php echo $date; ?></td>
+        <td class='hidden' colspan="2"><?php echo $date; ?></td>
     </tr>
     <tr>
         <td class='hidden'>
-            <?php if ($stock > 0){
-            echo $prix; ?> €
-            <td class='hidden'><img id='addpanier' src='images/panier_fleche.jpg'/> </td>
-            <?php } else { ?>
-            Indisponible pour le moment
-            <?php } ?>
+            <?php echo $prix; ?> €
+            <?php if ($stock > 0): ?>
+                <td class='hidden'><img class='addpanier' id="<?php echo $id; ?>"src='images/panier_fleche.jpg'/> </td>
+            <?php else: ?>
+                Indisponible pour le moment
+            <?php endif; ?>
         </td>
     </tr>
 </table>
@@ -57,3 +68,23 @@
 <?php 
     include_once('foot.php');
 ?>
+
+<script>
+    $(".addpanier").click(function (){
+        var id = $(this).attr('id');
+        $.ajax({
+                  type:'POST',
+                  url:'gestpanier.php',
+                  data:{
+                      status : 1,
+                      id : id
+                  },
+                  success: function(data,textStatus,jqXHR){
+                        $(data).prependTo('table');
+                  },
+                  error: function(jqXHR, textStatus,errorThrown){
+                      alert('une erreur s\'est produite');
+                  }
+                });
+    });
+</script>

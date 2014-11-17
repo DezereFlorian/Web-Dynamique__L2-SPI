@@ -55,7 +55,7 @@
             <td class='contenu_case'><?php echo $age; ?></td>
             <td class='cachepanier'>
                 <?php if($stock > 0): ?>
-                    <img id='addpanier' src='images/panier_fleche.jpg'/>
+                    <img class='addpanier' id="<?php echo $id ?>" src='images/panier_fleche.jpg'/>
                 <?php else: ?>
                     Indisponible
                 <?php endif; ?>
@@ -71,8 +71,8 @@
 ?>
 
 <script>
-    $("#addpanier").click(function (){
-        var id = $("#addpanier").prev(".cache").val();
+    $(".addpanier").click(function (){
+        var id = $(this).attr('id');
         $.ajax({
                   type:'POST',
                   url:'gestpanier.php',

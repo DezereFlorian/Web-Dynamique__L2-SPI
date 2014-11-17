@@ -16,12 +16,12 @@
         <form id="forminscription">
         <fieldset>
             <legend align="center"> Inscription </legend>
-            <label for="mail">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E-mail :&nbsp;</label><input type="text" name="mail" id="mail" required/><br/><br/>
-            <label for="utilisateur">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pseudo :&nbsp;</label><input type="text" name="pseudo" id="pseudo" required /><br /><br />
-            <label for="motdepasse">Mot de passe :&nbsp;</label><input type="password" name="mdp" id="mdp" required/><br /><br />
-            <label for="nom">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nom :&nbsp;</label><input type="text" name="nom" id="nom" required/><br /><br />
-            <label for="prenom">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prénom :&nbsp;</label><input type="text" name="prenom" id="prenom" required/><br /><br />
-            <label for="adresse">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresse :&nbsp;</label><input type="text" name="adresse" id="adresse" required/><br /><br />
+            <label for="mail">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E-mail :*&nbsp;</label><input type="text" name="mail" id="mail" required/><br/><br/>
+            <label for="utilisateur">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pseudo :*&nbsp;</label><input type="text" name="pseudo" id="pseudo" required /><br /><br />
+            <label for="motdepasse">Mot de passe :*&nbsp;</label><input type="password" name="mdp" id="mdp" required/><br /><br />
+            <label for="nom">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nom :*&nbsp;</label><input type="text" name="nom" id="nom" required/><br /><br />
+            <label for="prenom">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prénom :*&nbsp;</label><input type="text" name="prenom" id="prenom" required/><br /><br />
+            <label for="adresse">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresse :*&nbsp;</label><input type="text" name="adresse" id="adresse" required/><br /><br />
             <input type="button" onclick="verif();" value="Inscription" id="newmember"/>
         </fieldset>
         </form>
