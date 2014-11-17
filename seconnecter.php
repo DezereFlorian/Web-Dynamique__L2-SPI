@@ -31,10 +31,10 @@
     include_once('foot.php');
 ?>
 <script>
-    function verif(){
+    function verif(){ //regexp de vérification d'e-mail
         var mail = $('input[name=mail]').val();
         var exp = new RegExp("^[a-z0-9]{2,}([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$","gi");
-        if(exp.test(mail)){
+        if(exp.test(mail)){ //test de la regexp
             inscription();
             return true;
         }
@@ -43,7 +43,7 @@
             return false;
         }
     }
-    function connexion(){
+    function connexion(){ //récupération des champs nécessaires à la connexion et envoi d'une requête AJAX
         var pseudo = $('#pseudoCo').val();
         var mdp = $('#mdpCo').val();
         $.ajax({
@@ -62,7 +62,7 @@
               }
             });
         }
-    function inscription(){
+    function inscription(){ // récupération des champs nécessaires à l'inscription et envoi d'une requête AJAX
         var mail = $('#mail').val();
         var pseudo = $('#pseudo').val();
         var mdp = $('#mdp').val();

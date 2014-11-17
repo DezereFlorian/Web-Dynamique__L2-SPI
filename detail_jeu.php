@@ -3,7 +3,7 @@
     include_once('entete.php');
     $idjeu = $_GET['id'];
     
-    function get_jeux($idjeu){ //récupère tous les jeux
+    function get_jeux($idjeu){ //récupère le jeu dont on a donné l'ID
         global $bdd;
         $req = $bdd -> prepare("SELECT * from jeux as j, categorie as c, age as a where IDJeux=$idjeu and j.IDCateg = c.IDCategorie and j.IDAge = a.IDAge");
         $req -> execute();
@@ -21,7 +21,7 @@
     
     $jeu=get_jeux($idjeu);
     
-    
+    //récupère les infos
     $id= $jeu['IDJeux'];
     $nom = $jeu['NomJeu'];
     $img = $jeu['Image'];
@@ -31,6 +31,8 @@
     $stock = $jeu['Stock'];
     $categ = $jeu['NomCateg'];
     $age = $jeu['TrancheAge'];
+    
+    //puis les affiche
 ?>
 
 <table>
@@ -70,7 +72,7 @@
 ?>
 
 <script>
-    $(".addpanier").click(function (){
+    $(".addpanier").click(function (){ //requête AJAX pour ajouter un jeu au panier grâce à son identifiant
         var id = $(this).attr('id');
         $.ajax({
                   type:'POST',

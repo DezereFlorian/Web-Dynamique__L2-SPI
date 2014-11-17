@@ -37,6 +37,7 @@
         $lstJeux = Jeux5($date); // lance la fonction de récupération
         $lstSortie = Sortie3($date); //lance la fonction de récupération
     ?>
+    <h2>Dernières sorties</h2>
     <table>
         <tr>
     <?php
@@ -62,6 +63,7 @@
     <br/>
     <a href="jeux.php" class="lienbasique">>>Voir tous les jeux<<</a> <!-- redirection vers l'ensemble des jeux sortis -->
     <br/><br/>
+    <h2>Prochaines sorties</h2>
     <table> 
         <tr>
     <?php

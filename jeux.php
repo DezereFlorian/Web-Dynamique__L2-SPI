@@ -71,7 +71,7 @@
 ?>
 
 <script>
-    $(".addpanier").click(function (){
+    $(".addpanier").click(function (){ //requête AJAX pour ajouter au panier en utilisant l'identifiant
         var id = $(this).attr('id');
         $.ajax({
                   type:'POST',

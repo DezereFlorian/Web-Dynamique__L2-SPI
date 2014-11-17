@@ -9,9 +9,9 @@
         return $datePHP2;
     }
     
-    function get_panier($nb, $articles){
+    function get_panier($nb, $articles){ //récupère les jeux du panier
         global $bdd;
-        switch($nb):
+        switch($nb): // en fonction du nombre de jeux dans le panier, ajuste la requête pour choisir celle qui affichera tous les jeux du panier
             case 1:
                 $req = $bdd -> prepare("Select * from jeux where IDJeux='$articles[0]'");
                 break;
@@ -27,11 +27,12 @@
         return $get_panier;
     }
     
-    $nb_articles = sizeof($_SESSION['panier']);
+    $nb_articles = sizeof($_SESSION['panier']); // calcul du nombre de jeux présents dans le panier
     
-if($nb_articles == 0): ?>
+if($nb_articles == 0): //si il n'y a aucun jeu
+?> 
     <p>Votre panier est vide.</p>
-<?php else:
+<?php else: //si il y a des jeux, récupération des jeux via la fonction
     $lstPanier = get_panier($nb_articles, $_SESSION['panier']);
 ?>
     <table>
@@ -53,7 +54,7 @@ if($nb_articles == 0): ?>
         <td class='contenu_case'><?php echo $prix; ?></td>
         <td class='cachepanier'>
                 <img class='retirepanier' id="<?php echo $id ?>" src='images/retirer_panier.jpg'/>
-        </td> <!-- enlève du panier via jQuery -->
+        </td> <!-- retire du panier via jQuery -->
     </tr>
 <?php endforeach; ?>
     </table>    
@@ -62,7 +63,7 @@ if($nb_articles == 0): ?>
 ?>
 
 <script>
-    $(".retirepanier").click(function (){
+    $(".retirepanier").click(function (){ //requête AJAX pour retirer du panier le jeu d'après son identifiant.
         var id = $(this).attr('id');
         $.ajax({
                   type:'POST',

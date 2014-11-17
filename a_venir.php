@@ -71,7 +71,7 @@
 ?>
 
 <script>
-    $(".addpanier").click(function (){
+    $(".addpanier").click(function (){ //requête AJAX pour ajouter au panier un jeu d'après son identifiant
         var id = $(this).attr('id');
         $.ajax({
                   type:'POST',
