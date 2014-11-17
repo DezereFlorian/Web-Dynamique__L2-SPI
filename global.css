@@ -207,8 +207,8 @@ input{
 } 
 
 form#formconnect label{
-    display:inline-block; 
-    width:100px;
+    display:inline-block;
+    width: 20%;
 }
 
 legend{
@@ -216,6 +216,6 @@ legend{
 }
 
 form#forminscription label, form#forminscription input{
-    display:inline-block; 
-    width:100px;
+    display:inline-block;
+    width: 20%;
 }
