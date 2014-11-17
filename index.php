@@ -49,9 +49,8 @@
             
             //affichage de chaque jeu
     ?>
-        
             <a href="<?php echo $link;?>"><td class='contenu_case'>
-                <img src="<?php echo $img;?>" alt="miniature de <?php echo $nom; ?>" class="miniature"/><br/>
+                <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><img src="<?php echo $img; ?>"/></a><br/>
                 <span class="nomnew"><?php echo $nom;?></span><br/>
                 <span class="prixnew"><?php echo $prix;?></span>
             </td></a>
@@ -78,7 +77,7 @@
     ?>
         
         <a href="<?php echo $link;?>"><td class='contenu_case'>
-                <img src="<?php echo $img;?>" alt="miniature de <?php echo $nom;?>" class="miniature"/><br/>
+               <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><img src="<?php echo $img; ?>"/></a><br/>
                 <span class="nomnew"><?php echo $nom;?></span><br/>
                 <span class="sortienew"><?php echo $date;?></span>
             </td></a>

@@ -59,7 +59,7 @@
             <?php if ($stock > 0): ?>
                 <td class='hidden'><img class='addpanier' id="<?php echo $id; ?>"src='images/panier_fleche.jpg'/> </td>
             <?php else: ?>
-                Indisponible pour le moment
+                <td class="hidden">Indisponible pour le moment</td>
             <?php endif; ?>
         </td>
     </tr>
