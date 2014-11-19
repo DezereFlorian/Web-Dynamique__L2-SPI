@@ -24,11 +24,10 @@
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
      <link rel="stylesheet"  media="screen" type="text/css" title="design" href="global.css"/>
     <title>Ludotheque de Vull</title>
-    <link rel="shortcut icon" href="./images/icon_site.jpg" type="image/x-icon" /> 
+    <link rel="shortcut icon" href="./images/icone_site.png" type="image/x-icon" /> 
     <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script> <!-- insertion de la librairie jQuery -->
     </head>
     <body>
-    <banniere></banniere>
     <nav> <!-- menu -->
         <ul>
             <li><a href="./index.php"> Accueil </a></li>
