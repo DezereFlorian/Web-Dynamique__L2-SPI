@@ -61,7 +61,7 @@
         </tr>
     </table>
     <br/>
-    <a href="jeux.php" class="lienbasique">>>Voir tous les jeux<<</a> <!-- redirection vers l'ensemble des jeux sortis -->
+    <a href="jeux.php" class="lienright">>>Voir tous les jeux<<</a> <!-- redirection vers l'ensemble des jeux sortis -->
     <br/><br/>
     <h2>Prochaines sorties</h2>
     <table> 
@@ -89,7 +89,7 @@
         </tr>
     </table>
     <br/>
-    <a href="a_venir.php" class="lienbasique">>>Voir toutes les sorties<<</a> <!-- redirection vers l'ensemble des jeux qui vont sortir -->
+    <a href="a_venir.php" class="lienright">>>Voir toutes les sorties<<</a> <!-- redirection vers l'ensemble des jeux qui vont sortir -->
 </article>
 
 <?php

@@ -26,7 +26,7 @@ body{
 nav{
     position:relative;
     font-size:150%;
-    margin-top:15%;
+    margin-top:20%;
 }
 nav ul {
 
@@ -141,8 +141,10 @@ section a:hover{
     text-decoration: underline;
     color: saddlebrown;
     text-decoration-color: red;
-    text-align: left;
     display: inline-block;
+}
+.lienright, .lienright:visited{
+    float:right;
 }
 
 .cache {
@@ -200,6 +202,7 @@ form#formconnect label{
 
 legend{
     margin-left: 48%;
+    font-size : 150%;
 }
 
 form#forminscription label, form#forminscription input{

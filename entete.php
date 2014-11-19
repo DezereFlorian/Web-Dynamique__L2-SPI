@@ -2,12 +2,11 @@
     session_start();
     
     if (isset($_SESSION['id'])): //si il y a un identifiant de connexion
-        /*if ($_SESSION['id']==1):
+        if ($_SESSION['id']==1):
             $connect=2;
         else:
             $connect=1;
-        endif;*/
-        $connect=1;
+        endif;
     else: //si pas d'identifiant de connexion
         $connect=0;
     endif;
