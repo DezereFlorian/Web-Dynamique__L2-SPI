@@ -209,3 +209,7 @@ form#forminscription label, form#forminscription input{
     display:inline-block;
     width: 20%;
 }
+
+#datereservation{
+    display:none;
+}

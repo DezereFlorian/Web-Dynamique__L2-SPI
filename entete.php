@@ -22,9 +22,12 @@
     <head>
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
      <link rel="stylesheet"  media="screen" type="text/css" title="design" href="global.css"/>
+     <link rel="stylesheet" type="text/css" href="datepicker_ui_theme.css" />
     <title>Ludotheque de Vull</title>
     <link rel="shortcut icon" href="./images/icone_site.png" type="image/x-icon" /> 
     <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script> <!-- insertion de la librairie jQuery -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script> <!-- insertion des librairies pour le datepicker -->
+    <script type="text/javascript" src="js/datepicker-fr.js"></script> 
     </head>
     <body>
     <nav> <!-- menu -->
