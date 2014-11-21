@@ -26,7 +26,6 @@
     $nom = $jeu['NomJeu'];
     $img = $jeu['Image'];
     $desc = $jeu['Descriptif'];
-    $prix = $jeu['Prix'];
     $date = dateFR($jeu['DateDeSortie']);
     $stock = $jeu['Stock'];
     $categ = $jeu['NomCateg'];
@@ -37,19 +36,14 @@
 
 <table>
     <tr class='titre_case'>
-        <td class='hidden' colspan='2'><?php echo $nom;?></td>
+        <td class='hidden' colspan="3"><?php echo $nom;?></td>
     </tr>
     <tr>
-        <td class='hidden' colspan='2'><?php echo $img; ?></td>
-    </tr>
-    <tr>
-        <td class='hidden' colspan='2'><?php echo $desc;?></td>  
-    </tr>
-    <tr>
-        
-    </tr>
-    <tr>
+        <td class='hidden' rowspan='3'><?php echo $img; ?></td>
+        <td class='hidden' rowspan="3"><?php echo $desc;?></td>  
         <td class='hidden'><?php echo $age; ?> ans</td>
+    </tr>
+    <tr>
         <td class='hidden'><?php echo $categ; ?></td> 
     </tr>
     <tr>
@@ -57,7 +51,6 @@
     </tr>
     <tr>
         <td class='hidden'>
-            <?php echo $prix; ?> €
             <?php if ($stock > 0): ?>
                 <td class='hidden'><img class='addpanier' id="<?php echo $id; ?>"src='images/panier_fleche.jpg'/> </td>
             <?php else: ?>
