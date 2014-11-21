@@ -46,6 +46,7 @@ if($nb_articles == 0): //si il n'y a aucun jeu
         $sortie = dateFR($unJeu['DateDeSortie']);
         // affichage de chaque jeu du panier
 ?>
+        
     <tr>
         <td>
             <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><span class="nomnew"><?php echo $nom;?></span></a>
