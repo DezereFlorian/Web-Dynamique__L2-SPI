@@ -58,6 +58,26 @@ if($nb_articles == 0): //si il n'y a aucun jeu
     </tr>
 <?php endforeach; ?>
     </table>    
+    
+    <p>
+        <?php if ($nb_articles == 1): ?>
+        <button id="reservation">Réservez ce jeu !</button>
+        <?php endif;
+        if ($nb_articles > 1): ?>
+        <button id="reservation">Réservez ces jeux !</button>
+        <?php endif; ?>
+    </p>
+    <p id="datereservation">
+        Choisissez la date à laquelle vous souhaitez venir chercher votre réservation :
+        <label for="date">Date :&nbsp;</label><input type="text" id="date" />
+
+        <select id="moiscommande">
+            <?php for($i=1;$i<4;$i++): ?>
+            <option value="<?php echo $i; ?>"><?php echo $i; ?> mois</option>
+            <?php endfor; ?>
+        </select>
+
+    </p>
 <?php endif;
     include_once('foot.php');
 ?>
@@ -71,6 +91,43 @@ if($nb_articles == 0): //si il n'y a aucun jeu
                   data:{
                       status : 2,
                       id : id
+                  },
+                  success: function(data,textStatus,jqXHR){
+                        $(data).prependTo('table');
+                  },
+                  error: function(jqXHR, textStatus,errorThrown){
+                      alert('une erreur s\'est produite');
+                  }
+                });
+    });
+    
+    $('#reservation').click(function(){
+        var nowTemp = new Date();
+        var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+        $('#date').datepicker({ 
+            dateFormat: "yy-mm-dd",
+            firstDay : 1,
+            onRender: function(date) {
+                return date.valueOf() < now.valueOf() ? 'disabled' : '';
+            } 
+        });
+        $.datepicker.setDefaults($.datepicker.regional[ "fr" ]);
+        
+        $('#datereservation').slideDown("slow");
+    });
+    
+    $("#date").change(function(){
+        $('select').after('<button id="commandefinale">Commander</button>');
+    });
+    
+    $('body').on('click','#commandefinale',function(){
+        var nbmois = $('#moiscommande').val();
+        alert(nbmois);
+        $.ajax({
+                  type:'POST',
+                  url:'commande.php',
+                  data:{
+                      nbmois : nbmois
                   },
                   success: function(data,textStatus,jqXHR){
                         $(data).prependTo('table');
