@@ -145,6 +145,11 @@ section a:hover{
 }
 .lienright, .lienright:visited{
     float:right;
+    text-decoration: underline;
+    color: saddlebrown;
+    text-decoration-color: red;
+    display: inline-block;
+    
 }
 
 .cache {
