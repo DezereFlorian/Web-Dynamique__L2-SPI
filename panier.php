@@ -35,7 +35,6 @@ if($nb_articles == 0): //si il n'y a aucun jeu
 <?php else: //si il y a des jeux, récupération des jeux via la fonction
     $lstPanier = get_panier($nb_articles, $_SESSION['panier']);
 ?>
-    
     <table>
 <?php     
     foreach($lstPanier as $unJeu):
