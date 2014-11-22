@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 19 Novembre 2014 à 01:06
+-- Généré le :  Sam 22 Novembre 2014 à 02:15
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -106,8 +106,19 @@ CREATE TABLE IF NOT EXISTS `commande` (
   `DateCommande` date NOT NULL,
   `HoraireCommande` varchar(15) NOT NULL,
   `IDClient` bigint(20) unsigned NOT NULL,
+  `NbMois` int(11) NOT NULL,
   UNIQUE KEY `ID` (`IDCommande`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=75 ;
+
+--
+-- Contenu de la table `commande`
+--
+
+INSERT INTO `commande` (`IDCommande`, `DateCommande`, `HoraireCommande`, `IDClient`, `NbMois`) VALUES
+(70, '2014-11-29', '14', 2, 2),
+(71, '2014-11-30', '9', 2, 1),
+(72, '2014-11-30', '17', 2, 3),
+(74, '2015-01-16', '10', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -122,7 +133,19 @@ CREATE TABLE IF NOT EXISTS `commandefinale` (
   UNIQUE KEY `ID` (`IDCommandeFinale`),
   KEY `IDCommande` (`IDCommande`),
   KEY `IDJeux` (`IDJeux`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+
+--
+-- Contenu de la table `commandefinale`
+--
+
+INSERT INTO `commandefinale` (`IDCommandeFinale`, `IDCommande`, `IDJeux`) VALUES
+(3, 70, 3),
+(4, 71, 5),
+(5, 71, 2),
+(6, 72, 5),
+(7, 72, 2),
+(10, 74, 3);
 
 -- --------------------------------------------------------
 
@@ -134,7 +157,6 @@ CREATE TABLE IF NOT EXISTS `jeux` (
   `IDJeux` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `NomJeu` varchar(50) NOT NULL,
   `Descriptif` varchar(500) NOT NULL,
-  `Prix` decimal(5,2) NOT NULL,
   `Image` varchar(50) NOT NULL,
   `DateDeSortie` date NOT NULL,
   `Stock` int(11) NOT NULL,
@@ -150,10 +172,10 @@ CREATE TABLE IF NOT EXISTS `jeux` (
 -- Contenu de la table `jeux`
 --
 
-INSERT INTO `jeux` (`IDJeux`, `NomJeu`, `Descriptif`, `Prix`, `Image`, `DateDeSortie`, `Stock`, `IDCateg`, `IDAge`) VALUES
-(2, 'Uno', 'Jeu de carte très sympathique, peut se jouer de 2 à 6 joueurs', '9.99', 'uno.jpg', '2006-08-20', 50, 1, 2),
-(3, 'Tomb Raider', 'Tomb Raider, le dernier.\r\nAvec des boobs et des fesses. Et aussi des jolis paysages (éventuellement).', '13.99', 'tombraider.jpg', '2012-07-01', 0, 2, 6),
-(5, 'Call of Duty Bie-Zom', 'Le nouveau Call of Duty.', '74.99', 'codbison.jpg', '2015-03-25', 500, 2, 6);
+INSERT INTO `jeux` (`IDJeux`, `NomJeu`, `Descriptif`, `Image`, `DateDeSortie`, `Stock`, `IDCateg`, `IDAge`) VALUES
+(2, 'Uno', 'Jeu de carte très sympathique, peut se jouer de 2 à 6 joueurs', 'uno.jpg', '2006-08-20', 50, 1, 2),
+(3, 'Tomb Raider', 'Tomb Raider, le dernier.\r\nAvec des boobs et des fesses. Et aussi des jolis paysages (éventuellement).', 'tombraider.jpg', '2012-07-01', 10, 2, 6),
+(5, 'Call of Duty Bie-Zom', 'Le nouveau Call of Duty.', 'codbison.jpg', '2015-03-25', 500, 2, 6);
 
 --
 -- Contraintes pour les tables exportées
