@@ -27,9 +27,18 @@
         return $get_panier;
     }
     
+if($connect == 0): ?>
+    <p>
+        T'es un petit malin toi, tu veux venir ici sans être connecté ? C'est dommage que j'ai prévu ton coup. Bisous ! ♥
+    </p>
+<?php else:
     $nb_articles = sizeof($_SESSION['panier']); // calcul du nombre de jeux présents dans le panier
     
-if($nb_articles == 0): //si il n'y a aucun jeu
+?>
+
+<h2>Votre panier</h2><br/>
+
+<?php if($nb_articles == 0): //si il n'y a aucun jeu
 ?> 
     <p>Votre panier est vide.</p>
 <?php else: //si il y a des jeux, récupération des jeux via la fonction
@@ -68,17 +77,23 @@ if($nb_articles == 0): //si il n'y a aucun jeu
         <?php endif; ?>
     </p>
     <p id="datereservation">
-        Choisissez la date à laquelle vous souhaitez venir chercher votre réservation :
-        <label for="date">Date :&nbsp;</label><input type="text" id="date" />
+        Choisissez la date et l'heure à laquelle vous souhaitez venir chercher votre réservation :<br/>
 
+        <select id="time">
+            <?php for($j=9;$j<18;$j++): 
+                if($j < 12 || $j > 13): ?>
+            <option value="<?php echo $j; ?>"><?php echo $j;?>h - <?php echo $j+1; ?>h</option>
+            <?php endif; endfor; ?>
+        </select>
         <select id="moiscommande">
             <?php for($i=1;$i<4;$i++): ?>
             <option value="<?php echo $i; ?>"><?php echo $i; ?> mois</option>
             <?php endfor; ?>
         </select>
-
     </p>
 <?php endif;
+    
+endif;
     include_once('foot.php');
 ?>
 
@@ -102,32 +117,28 @@ if($nb_articles == 0): //si il n'y a aucun jeu
     });
     
     $('#reservation').click(function(){
-        var nowTemp = new Date();
-        var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+        $('#time').before('<label for="date">Date :&nbsp;</label><input type="text" id="date" />');
         $('#date').datepicker({ 
-            dateFormat: "yy-mm-dd",
-            firstDay : 1,
-            onRender: function(date) {
-                return date.valueOf() < now.valueOf() ? 'disabled' : '';
-            } 
+            dateFormat: "yy-mm-dd"
         });
-        $.datepicker.setDefaults($.datepicker.regional[ "fr" ]);
+        $('#date').datepicker($.datepicker.regional[ "fr" ]);
+        $('#moiscommande').after('<input type="button" onclick="validerCommande();" id="valider" value="Commander"/>');
         
         $('#datereservation').slideDown("slow");
     });
     
-    $("#date").change(function(){
-        $('select').after('<button id="commandefinale">Commander</button>');
-    });
-    
-    $('body').on('click','#commandefinale',function(){
+    function validerCommande(){
+        
+        var date = $('#date').val();
         var nbmois = $('#moiscommande').val();
-        alert(nbmois);
+        var heure = $('#time').val();
         $.ajax({
                   type:'POST',
                   url:'commande.php',
                   data:{
-                      nbmois : nbmois
+                      nbmois : nbmois,
+                      date : date,
+                      heure : heure
                   },
                   success: function(data,textStatus,jqXHR){
                         $(data).prependTo('table');
@@ -136,5 +147,5 @@ if($nb_articles == 0): //si il n'y a aucun jeu
                       alert('une erreur s\'est produite');
                   }
                 });
-    });
+    }
 </script>

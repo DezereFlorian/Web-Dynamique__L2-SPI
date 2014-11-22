@@ -168,7 +168,7 @@ section a:hover{
 
 .titre_case{
     text-decoration: underline;
-    font-size: 15px;
+    font-size: 110%;
 }
 
 .bienvenue{
@@ -218,4 +218,7 @@ form#forminscription label, form#forminscription input{
 
 #datereservation{
     display:none;
+}
+.detailjeu{
+    width:30%;
 }

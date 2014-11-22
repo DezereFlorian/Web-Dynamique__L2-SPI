@@ -36,25 +36,25 @@
 
 <table>
     <tr class='titre_case'>
-        <td class='hidden' colspan="3"><?php echo $nom;?></td>
+        <td class='hidden detailjeu' colspan="3"><?php echo $nom;?></td>
     </tr>
     <tr>
-        <td class='hidden' rowspan='3'><?php echo $img; ?></td>
-        <td class='hidden' rowspan="3"><?php echo $desc;?></td>  
-        <td class='hidden'><?php echo $age; ?> ans</td>
+        <td class='hidden detailjeu' rowspan='3'><img src='images/<?php echo $img; ?>' alt='<?php echo $img; ?>'/></td>
+        <td class='hidden detailjeu' rowspan="3"><?php echo $desc;?></td>  
+        <td class='hidden detailjeu'><?php echo $age; ?> ans</td>
     </tr>
     <tr>
-        <td class='hidden'><?php echo $categ; ?></td> 
+        <td class='hidden detailjeu'><?php echo $categ; ?></td> 
     </tr>
     <tr>
-        <td class='hidden' colspan="2"><?php echo $date; ?></td>
+        <td class='hidden detailjeu' colspan="2"><?php echo $date; ?></td>
     </tr>
     <tr>
-        <td class='hidden'>
+        <td class='hidden detailjeu'>
             <?php if ($stock > 0): ?>
-                <td class='hidden'><img class='addpanier' id="<?php echo $id; ?>"src='images/panier_fleche.jpg'/> </td>
+                <td class='hidden detailjeu'><img class='addpanier' id="<?php echo $id; ?>"src='images/panier_fleche.jpg' alt='panier_fleche.jpg'/> </td>
             <?php else: ?>
-                <td class="hidden">Indisponible pour le moment</td>
+                <td class="hidden detailjeu">Indisponible pour le moment</td>
             <?php endif; ?>
         </td>
     </tr>

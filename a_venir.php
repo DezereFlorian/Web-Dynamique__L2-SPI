@@ -58,12 +58,8 @@
             <td class='contenu_case'><?php echo $categ; ?></td>
             <td class='contenu_case'><?php echo $age; ?></td>
             <td class='cachepanier'>
-                <?php if($stock > 0): ?>
-                    <img class='addpanier' id="<?php echo $id ?>" src='images/panier_fleche.jpg'/>
-                <?php else: ?>
-                    Indisponible
-                <?php endif; ?>
-            </td> <!-- ajout au panier via jQuery -->
+                    Indisponible pour le moment
+            </td>
         </tr>
     <?php
         endforeach;

@@ -1,9 +1,9 @@
     <?php
     include_once('entete.php');
      
-    function get_jeux(){ //récupère tous les jeux
+    function get_jeux($date){ //récupère tous les jeux
         global $bdd;
-        $req = $bdd -> prepare("SELECT * from jeux as j, categorie as c, age as a where j.IDCateg = c.IDCategorie and j.IDAge = a.IDAge order by DateDeSortie;");
+        $req = $bdd -> prepare("SELECT * from jeux as j, categorie as c, age as a where j.IDCateg = c.IDCategorie and j.IDAge = a.IDAge and DateDeSortie <= '$date' order by DateDeSortie;");
         $req -> execute();
         $get_jeux = $req -> fetchAll();
         return $get_jeux;
@@ -15,8 +15,8 @@
 
         return $datePHP2;
     }
-    
-    $lstJeux = get_jeux(); // lance la fonction de récupération des jeux
+    $date=date("Y-m-d"); //date d'aujourd'hui
+    $lstJeux = get_jeux($date); // lance la fonction de récupération des jeux
 
     
     // affichage du tableau avec tous les jeux
