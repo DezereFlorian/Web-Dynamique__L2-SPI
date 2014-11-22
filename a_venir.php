@@ -27,7 +27,6 @@
         <th>Image</th>
         <th>Description</th>
         <th>Date de sortie</th>
-        <th>Prix</th>
         <th>Catégorie</th>
         <th>Age</th>
         <th></th>
@@ -37,8 +36,6 @@
             $id = $unJeu['IDJeux'];
             $nom = $unJeu['NomJeu'];
             $desc = $unJeu['Descriptif'];
-            $prix = $unJeu['Prix'];
-            $stock = $unJeu['Stock'];
             $img = "images/".$unJeu['Image'];
             $sortie = dateFR($unJeu['DateDeSortie']);
             $categ = $unJeu['NomCateg'];
@@ -54,7 +51,6 @@
             </td>
             <td class='contenu_case'><?php echo $desc; ?></td>
             <td class='contenu_case'><?php echo $sortie; ?></td>
-            <td class='contenu_case'><?php echo $prix; ?></td>
             <td class='contenu_case'><?php echo $categ; ?></td>
             <td class='contenu_case'><?php echo $age; ?></td>
             <td class='cachepanier'>

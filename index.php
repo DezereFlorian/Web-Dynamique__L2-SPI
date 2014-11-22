@@ -44,15 +44,13 @@
         foreach($lstJeux as $unJeu): // pour chaque jeu associe aux variables d'affichage les variables sortantes de la base
             $id = $unJeu['IDJeux'];
             $nom = $unJeu['NomJeu'];
-            $prix = $unJeu['Prix'];
             $img = "images/".$unJeu['Image'];
             $link = "jeux.php?id=$id";
             
             //affichage de chaque jeu
     ?>      <td>
                 <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><img src="<?php echo $img; ?>"/></a><br/>   
-                <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><span class="nomnew"><?php echo $nom;?></span></a><br/>
-                <span class="prixnew"><?php echo $prix;?></span>
+                <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><span class="nomnew"><?php echo $nom;?></span></a>
             </td>
         
     <?php

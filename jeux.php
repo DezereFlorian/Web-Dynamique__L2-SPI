@@ -3,7 +3,7 @@
      
     function get_jeux($date){ //récupère tous les jeux
         global $bdd;
-        $req = $bdd -> prepare("SELECT * from jeux as j, categorie as c, age as a where j.IDCateg = c.IDCategorie and j.IDAge = a.IDAge and DateDeSortie <= '$date' order by DateDeSortie;");
+        $req = $bdd -> prepare("SELECT * from jeux as j, categorie as c, age as a where j.IDCateg = c.IDCategorie and j.IDAge = a.IDAge and DateDeSortie <= '$date' order by DateDeSortie desc;");
         $req -> execute();
         $get_jeux = $req -> fetchAll();
         return $get_jeux;
@@ -27,7 +27,6 @@
         <th>Image</th>
         <th>Description</th>
         <th>Date de sortie</th>
-        <th>Prix</th>
         <th>Catégorie</th>
         <th>Age</th>
         <th></th>
@@ -37,7 +36,6 @@
             $id = $unJeu['IDJeux'];
             $nom = $unJeu['NomJeu'];
             $desc = $unJeu['Descriptif'];
-            $prix = $unJeu['Prix'];
             $stock = $unJeu['Stock'];
             $img = "images/".$unJeu['Image'];
             $sortie = dateFR($unJeu['DateDeSortie']);
@@ -52,7 +50,6 @@
             <td><a class="nomnew" href="detail_jeu.php?id=<?php echo $id; ?>"><img src="<?php echo $img; ?>"/></a></td>
             <td class='contenu_case'><?php echo $desc; ?></td>
             <td class='contenu_case'><?php echo $sortie; ?></td>
-            <td class='contenu_case'><?php echo $prix; ?></td>
             <td class='contenu_case'><?php echo $categ; ?></td>
             <td class='contenu_case'><?php echo $age; ?></td>
             <td class='cachepanier'>

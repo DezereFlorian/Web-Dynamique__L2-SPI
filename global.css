@@ -30,7 +30,7 @@ nav{
 }
 nav ul {
 
-    background-color:blue;
+    background-color:#067206;
     border-radius : 8px 8px 8px 8px;
     text-align:center;
 }
@@ -39,7 +39,7 @@ nav ul, nav ul ul {
     margin: 0;
     list-style: none;
     text-align : center;
-    background-color:lightseagreen;
+    background-color:#067206;
     
 }
 nav ul li {
@@ -54,11 +54,11 @@ nav ul ul li {
 }
 nav ul a {
     text-decoration: none;
-	color:white;
-        display:block;
+    color:white;
+    display:block;
         
 }
-nav ul a:hover {
+nav ul a:hover{
     color:black;
     
 }
@@ -74,11 +74,11 @@ nav ul ul {
     display:none;
 }
 nav ul li:hover, nav ul li:hover ul li:hover{
-    background:#0090b7;
+    background:#067206;
 }
 nav ul li:hover ul {
 /* Au survol des li du menu on replace les sous menus */
-    max-height : 25em;
+    max-height : 10em;
     display:block;
     z-index:3;
 }
@@ -89,12 +89,19 @@ nav ul li ul {
     max-height:0;
     text-align:left;   
 }
+marquee{
+    margin-top:10px;
+    color:black;
+    font-weight:bold;
+    font-size:110%;
+}
 section{
     margin-top:15px;
     position:relative;
     clear:both;
-    border:2px ridge grey;
-    background-color:darkgrey;
+    border:4px groove grey;
+    background-color:lightgrey;
+    border-radius:8px;
     padding:2%;
 }
 retour a, retour a:visited{
@@ -121,7 +128,7 @@ table{
     margin-right:auto;
 }
 td{
-    border:3px solid navy;
+    border:3px ridge #067206;
     padding:10px;
     width:100px;
 }
@@ -142,6 +149,7 @@ section a:hover{
     color: saddlebrown;
     text-decoration-color: red;
     display: inline-block;
+    font-weight:bold;
 }
 .lienright, .lienright:visited, .liendetail{
     float:right;
@@ -149,7 +157,7 @@ section a:hover{
     color: saddlebrown;
     text-decoration-color: red;
     display: inline-block;
-    
+    font-weight:bold;
 }
 
 .cache {
@@ -168,7 +176,9 @@ section a:hover{
 
 .titre_case{
     text-decoration: underline;
-    font-size: 110%;
+    font-size: 140%;
+    font-weight:bold;
+    color:#067206;
 }
 
 .bienvenue{
