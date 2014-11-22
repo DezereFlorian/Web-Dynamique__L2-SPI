@@ -55,8 +55,11 @@ if($connect == 0): ?>
         $sortie = dateFR($unJeu['DateDeSortie']);
         // affichage de chaque jeu du panier
 ?>
+        
     <tr>
-        <td><span class="cache"><?php echo $id; ?></span><a class="liendetail" href="detail_jeu.php?id=<?php echo $id; ?>"><?php echo $nom; ?></a></td> <!-- mets le span en caché avec visibility : hidden -->
+        <td>
+            <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><span class="nomnew"><?php echo $nom;?></span></a>
+        </td>
         <td><a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><img src="<?php echo $img; ?>"/></a></td>
         <td class='contenu_case'><?php echo $desc; ?></td>
         <td class='contenu_case'><?php echo $sortie; ?></td>
