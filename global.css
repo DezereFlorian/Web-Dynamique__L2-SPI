@@ -232,3 +232,10 @@ form#forminscription label, form#forminscription input{
 .detailjeu{
     width:30%;
 }
+.profiltable{
+    width : 30%;
+    border-top: 0px;
+    border-left:0px;
+    border-right:0px;
+    border-bottom: 3px ridge #067206;
+}

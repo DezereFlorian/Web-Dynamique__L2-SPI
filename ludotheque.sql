@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Sam 22 Novembre 2014 à 02:15
+-- Généré le :  Lun 24 Novembre 2014 à 00:53
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -104,21 +104,26 @@ INSERT INTO `client` (`IDClient`, `Nom`, `Prenom`, `AdresseMail`, `Pseudo`, `Mdp
 CREATE TABLE IF NOT EXISTS `commande` (
   `IDCommande` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `DateCommande` date NOT NULL,
+  `DateRetour` date NOT NULL,
   `HoraireCommande` varchar(15) NOT NULL,
   `IDClient` bigint(20) unsigned NOT NULL,
   `NbMois` int(11) NOT NULL,
   UNIQUE KEY `ID` (`IDCommande`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=75 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=80 ;
 
 --
 -- Contenu de la table `commande`
 --
 
-INSERT INTO `commande` (`IDCommande`, `DateCommande`, `HoraireCommande`, `IDClient`, `NbMois`) VALUES
-(70, '2014-11-29', '14', 2, 2),
-(71, '2014-11-30', '9', 2, 1),
-(72, '2014-11-30', '17', 2, 3),
-(74, '2015-01-16', '10', 2, 2);
+INSERT INTO `commande` (`IDCommande`, `DateCommande`, `DateRetour`, `HoraireCommande`, `IDClient`, `NbMois`) VALUES
+(70, '2014-11-29', '2015-01-29', '14', 2, 2),
+(71, '2014-11-30', '2014-12-30', '9', 2, 1),
+(72, '2014-11-30', '2015-02-28', '17', 2, 3),
+(74, '2015-01-16', '2015-03-16', '10', 2, 2),
+(75, '2015-02-21', '2015-04-21', '15', 2, 2),
+(76, '2014-11-30', '2015-02-28', '16', 2, 3),
+(77, '2014-11-23', '2014-12-23', '9', 2, 1),
+(79, '2014-11-30', '2015-02-28', '9', 2, 3);
 
 -- --------------------------------------------------------
 
@@ -133,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `commandefinale` (
   UNIQUE KEY `ID` (`IDCommandeFinale`),
   KEY `IDCommande` (`IDCommande`),
   KEY `IDJeux` (`IDJeux`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Contenu de la table `commandefinale`
@@ -145,7 +150,12 @@ INSERT INTO `commandefinale` (`IDCommandeFinale`, `IDCommande`, `IDJeux`) VALUES
 (5, 71, 2),
 (6, 72, 5),
 (7, 72, 2),
-(10, 74, 3);
+(10, 74, 3),
+(11, 75, 3),
+(12, 76, 2),
+(13, 77, 3),
+(14, 77, 2),
+(16, 79, 2);
 
 -- --------------------------------------------------------
 
