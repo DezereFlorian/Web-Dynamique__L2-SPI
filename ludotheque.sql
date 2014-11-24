@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 24 Novembre 2014 à 18:51
+-- Généré le :  Lun 24 Novembre 2014 à 22:34
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -39,11 +39,11 @@ CREATE TABLE IF NOT EXISTS `age` (
 --
 
 INSERT INTO `age` (`IDAge`, `TrancheAge`) VALUES
-(1, '3-6'),
-(2, '6-9'),
-(3, '9-12'),
-(4, '12-16'),
-(5, '16-18'),
+(1, '3+'),
+(2, '7+'),
+(3, '10+'),
+(4, '12+'),
+(5, '16+'),
 (6, '18+'),
 (7, 'Tout public');
 
@@ -109,21 +109,14 @@ CREATE TABLE IF NOT EXISTS `commande` (
   `IDClient` bigint(20) unsigned NOT NULL,
   `NbMois` int(11) NOT NULL,
   UNIQUE KEY `ID` (`IDCommande`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=80 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=81 ;
 
 --
 -- Contenu de la table `commande`
 --
 
 INSERT INTO `commande` (`IDCommande`, `DateCommande`, `DateRetour`, `HoraireCommande`, `IDClient`, `NbMois`) VALUES
-(70, '2014-11-29', '2015-01-29', '14', 2, 2),
-(71, '2014-11-30', '2014-12-30', '9', 2, 1),
-(72, '2014-11-30', '2015-02-28', '17', 2, 3),
-(74, '2015-01-16', '2015-03-16', '10', 2, 2),
-(75, '2015-02-21', '2015-04-21', '15', 2, 2),
-(76, '2014-11-30', '2015-02-28', '16', 2, 3),
-(77, '2014-11-23', '2014-12-23', '9', 2, 1),
-(79, '2014-11-30', '2015-02-28', '9', 2, 3);
+(80, '2014-11-30', '2015-01-30', '15', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -138,24 +131,16 @@ CREATE TABLE IF NOT EXISTS `commandefinale` (
   UNIQUE KEY `ID` (`IDCommandeFinale`),
   KEY `IDCommande` (`IDCommande`),
   KEY `IDJeux` (`IDJeux`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
 --
 -- Contenu de la table `commandefinale`
 --
 
 INSERT INTO `commandefinale` (`IDCommandeFinale`, `IDCommande`, `IDJeux`) VALUES
-(3, 70, 3),
-(4, 71, 5),
-(5, 71, 2),
-(6, 72, 5),
-(7, 72, 2),
-(10, 74, 3),
-(11, 75, 3),
-(12, 76, 2),
-(13, 77, 3),
-(14, 77, 2),
-(16, 79, 2);
+(17, 80, 13),
+(18, 80, 9),
+(19, 80, 11);
 
 -- --------------------------------------------------------
 
@@ -176,17 +161,23 @@ CREATE TABLE IF NOT EXISTS `jeux` (
   UNIQUE KEY `ID` (`IDJeux`),
   KEY `IDCateg` (`IDCateg`),
   KEY `IDAge` (`IDAge`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Contenu de la table `jeux`
 --
 
 INSERT INTO `jeux` (`IDJeux`, `NomJeu`, `Descriptif`, `Image`, `DateDeSortie`, `Stock`, `IDCateg`, `IDAge`) VALUES
-(2, 'Uno', 'Jeu de carte très sympathique, peut se jouer de 2 à 6 joueurs', 'uno.jpg', '2006-08-20', 50, 1, 2),
-(3, 'Tomb Raider', 'Tomb Raider, le dernier.\r\nAvec des boobs et des fesses. Et aussi des jolis paysages (éventuellement).', 'tombraider.jpg', '2012-07-01', 10, 2, 6),
-(5, 'Call of Duty Bie-Zom', 'Le nouveau Call of Duty.', 'codbison.jpg', '2015-03-25', 500, 2, 6),
-(6, 'Farcry 4', 'PAN ! PAN ! PAN ! HAHA ! Jeu vidéo sympa.', 'farcry4.jpg', '2014-12-19', 20, 2, 2);
+(2, 'Uno', 'Le but ? Recouvrir la carte jouée précédemment avec une carte de la même couleur ou avec le même symbole. Mais attention aux cartes Action... et aux coups de bluff que chacun peut tenter à tout instant ! 2 à 10 joueurs', 'uno.jpg', '2006-08-20', 50, 1, 2),
+(3, 'Tomb Raider', 'Tomb Raider est un jeu d''action-aventure sur Playstation 3. On y incarne la jeune Lara, âgée de 21 ans, qui va devoir survivre sur une île à la suite d''un naufrage. Pour ce faire, elle devra se nourrir, chasser mais aussi faire attention aux menaces qui planent sur elle.\n', 'tombraider.jpg', '2013-03-05', 10, 2, 6),
+(6, 'Farcry 4', 'Far Cry 4 est un jeu de tir à la première personne sur PC. Le joueur incarne Ajay, un natif de la région de Kyrat, dans l''Himalaya. A son retour au pays, il prend part à la rébellion pour le soulèvement de son pays face au dictateur Pagan Min. Le titre offre une aventure solo en monde ouvert que l''on peut explorer en coopération à deux, mais également un multijoueur compétitif et un éditeur de cartes.', 'farcry4.jpg', '2014-11-18', 20, 2, 6),
+(7, 'SOS Ouistiti', 'Retirez les baguettes de la couleur indiquée par le dé, mais attention aux singes ! Car c''est le joueur qui en aura fait tomber le moins qui gagne la partie. Alors qui sera le plus habile ?', 'sosouistiti.jpg', '2014-12-18', 30, 1, 2),
+(8, 'Pokémon Rubis Omega', 'Pokémon Rubis Omega est un jeu de rôle disponible sur 3DS. Remake de la version Rubis sortie sur Game Boy Advance, cet épisode reprend les Méga-Evolutions et une partie de l''interface de Pokémon X et Y pour vous offrir une version revue de la région de Hoenn. Vous pourrez également parcourir librement les cieux à dos de Pokémon et explorer les bases secrètes de vos amis.', 'pokemonrubis.jpg', '2014-11-28', 100, 2, 2),
+(9, 'Mikado', 'Qui récoltera le plus de mikado ? Celui qui remporte le plus de points sera le gagnant.', 'mikado.jpg', '2013-01-23', 20, 1, 1),
+(10, 'Puissance 4', 'Puissance 4, la grille devenu classique se refait une jeunesse avec cette nouvelle version. Il a un nouveau nom, Connect 4 et de nouvelles couleurs, mais le jeu est toujours simple est efficace: 4 pions alignés et c’est gagné. De nouvelles façons de jouer sont aussi disponible dans les instructions.', 'puissance4.jpg', '2011-11-05', 50, 1, 2),
+(11, 'DmC Devil May Cry', 'DmC Devil May Cry est un Beat''em all sur Playstation 3. L''univers du jeu s''est assombri et cet épisode vous permet d''incarner Dante dans sa jeunesse. Conservant le gameplay propre à la série, le titre comprend des armes inédites ainsi que de nouveaux pouvoirs.', 'devilmaycry.jpg', '2013-01-15', 10, 2, 5),
+(12, 'Metal Gear Solid V - Ground Zeroes', 'MGS V - Ground Zeroes sur PC est le prologue de The Phantom Pain. Le titre est vendu séparément et plonge le joueur dans l''introduction du 5ème épisode de la saga. En plus de la mission principale scénarisée, on retrouve 5 missions annexes visant à faire découvrir aux joueurs les subtilités du gameplay.', 'mgs5.jpg', '2014-12-18', 15, 2, 6),
+(13, 'Monopoly', 'Achetez, vendez et spéculez pour être le joueur le plus riche à la fin de la partie !', 'monopoly.jpg', '2014-05-23', 50, 1, 3);
 
 --
 -- Contraintes pour les tables exportées

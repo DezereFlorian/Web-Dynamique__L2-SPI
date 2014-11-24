@@ -50,7 +50,7 @@ if($connect == 0): ?>
         $id = $unJeu['IDJeux'];
         $nom = $unJeu['NomJeu'];
         $desc = $unJeu['Descriptif'];
-        $img = "images/".$unJeu['Image'];
+        $img = "images/produits/".$unJeu['Image'];
         $sortie = dateFR($unJeu['DateDeSortie']);
         // affichage de chaque jeu du panier
 ?>
@@ -59,8 +59,8 @@ if($connect == 0): ?>
         <td>
             <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><span class="nomnew"><?php echo $nom;?></span></a>
         </td>
-        <td><a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><img src="<?php echo $img; ?>"/></a></td>
-        <td class='contenu_case'><?php echo $desc; ?></td>
+        <td><a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><img class="produit" src="<?php echo $img; ?>"/></a></td>
+        <td class='contenu_case description_case'><?php echo $desc; ?></td>
         <td class='contenu_case'><?php echo $sortie; ?></td>
         <td class='cachepanier'>
                 <img class='retirepanier' id="<?php echo $id ?>" src='images/retirer_panier.jpg'/>

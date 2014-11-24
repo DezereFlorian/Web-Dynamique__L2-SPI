@@ -39,7 +39,7 @@
         <td class='hidden detailjeu' colspan="3"><?php echo $nom;?></td>
     </tr>
     <tr>
-        <td class='hidden detailjeu' rowspan='3'><img src='images/<?php echo $img; ?>' alt='<?php echo $img; ?>'/></td>
+        <td class='hidden detailjeu' rowspan='3'><img class="produitdetail" src='images/produits/<?php echo $img; ?>' alt='<?php echo $img; ?>'/></td>
         <td class='hidden detailjeu' rowspan="3"><?php echo $desc;?></td>  
         <td class='hidden detailjeu'><?php echo $age; ?> ans</td>
     </tr>

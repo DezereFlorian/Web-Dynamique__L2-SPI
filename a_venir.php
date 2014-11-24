@@ -57,7 +57,7 @@
             $id = $unJeu['IDJeux'];
             $nom = $unJeu['NomJeu'];
             $desc = $unJeu['Descriptif'];
-            $img = "images/".$unJeu['Image'];
+            $img = "images/produits/".$unJeu['Image'];
             $sortie = dateFR($unJeu['DateDeSortie']);
             $categ = $unJeu['NomCateg'];
             $age = $unJeu['TrancheAge'];
@@ -68,9 +68,9 @@
                  <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><span class="nomnew"><?php echo $nom;?></span></a>
             </td> <!-- mets le span en caché avec visibility : hidden -->
             <td>
-                <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><img src="<?php echo $img; ?>"/></a>
+                <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><img class="produit" src="<?php echo $img; ?>"/></a>
             </td>
-            <td class='contenu_case'><?php echo $desc; ?></td>
+            <td class='contenu_case description_case'><?php echo $desc; ?></td>
             <td class='contenu_case'><?php echo $sortie; ?></td>
             <td class='contenu_case'><?php echo $categ; ?></td>
             <td class='contenu_case'><?php echo $age; ?></td>

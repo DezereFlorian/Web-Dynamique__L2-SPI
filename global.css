@@ -10,14 +10,14 @@ html {
     margin:0;
     padding:0;
     font-family: Corbel, Comic Sans Ms;
-    background-image: url(images/background.jpg);
+    background: url(images/background.jpg) no-repeat center fixed;
     -webkit-background-size: cover; /* pour Chrome et Safari */
     -moz-background-size: cover; /* pour Firefox */
     -o-background-size: cover; /* pour Opera */
     background-size: cover; /* version standardisée */
 }
 body{
-    width:70%;
+    width:75%;
     margin: auto;
 }
 
@@ -261,4 +261,13 @@ th{
 }
 #search{
     vertical-align: middle;
+}
+img.produit{
+    width:90%;
+}
+img.produitdetail{
+    width:100%;
+}
+.description_case{
+    width:40%;
 }

@@ -30,6 +30,7 @@
     <script type="text/javascript" src="js/datepicker-fr.js"></script> 
     </head>
     <body>
+    <span id="top"></span>
     <nav> <!-- menu -->
         <ul>
             <li><a href="./index.php"> Accueil </a></li>

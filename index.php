@@ -44,12 +44,12 @@
         foreach($lstJeux as $unJeu): // pour chaque jeu associe aux variables d'affichage les variables sortantes de la base
             $id = $unJeu['IDJeux'];
             $nom = $unJeu['NomJeu'];
-            $img = "images/".$unJeu['Image'];
+            $img = "images/produits/".$unJeu['Image'];
             $link = "jeux.php?id=$id";
             
             //affichage de chaque jeu
     ?>      <td>
-                <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><img src="<?php echo $img; ?>"/></a><br/>   
+                <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><img class="produit" src="<?php echo $img; ?>"/></a><br/>   
                 <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><span class="nomnew"><?php echo $nom;?></span></a>
             </td>
         
@@ -68,7 +68,7 @@
         foreach($lstSortie as $uneSortie): // pour chaque jeu associe aux variables d'affichage les variables sortantes de la base
             $id = $uneSortie['IDJeux'];
             $nom = $uneSortie['NomJeu'];
-            $img = "images/".$uneSortie['Image'];
+            $img = "images/produits/".$uneSortie['Image'];
             $date = dateFR($uneSortie['DateDeSortie']);
             $link = "jeux.php?id=$id";
             
@@ -76,7 +76,7 @@
     ?>
         
         <td>
-               <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><img src="<?php echo $img; ?>"/></a><br/>
+               <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><img class="produit" src="<?php echo $img; ?>"/></a><br/>
                <a class="" href="detail_jeu.php?id=<?php echo $id; ?>"><span class="nomnew"><?php echo $nom;?></span></a><br/>
                 <span class="sortienew"><?php echo $date;?></span>
         </td>
