@@ -3,9 +3,9 @@ session_start();
 ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8;">
 <?php
-include('connexion.php');
+include('connexion2.php');
 
-function get_categories(){
+function get_categories(){ //récupère les catégories
     global $bdd;
     $req = $bdd -> prepare("SELECT * from categorie");
     $req -> execute();
@@ -19,14 +19,15 @@ function dateFR($datePHP1) // transforme la date anglaise (de la base) en date f
 
     return $datePHP2;
 }
-function get_name($date, $val){
+function get_name($date, $val){ // cherche tout mot clé passé en paramètre dans $val dans le nom ou la description du jeu
     global $bdd;
     $req = $bdd -> prepare("SELECT * from jeux as j, categorie as c, age as a where j.IDCateg = c.IDCategorie and j.IDAge = a.IDAge and DateDeSortie <= '$date' and (NomJeu like '%$val%' or Descriptif like '%$val%') order by NomJeu");
     $req -> execute();
     $get_name = $req -> fetchAll();
     return $get_name;
 }
-function get_nomasc_categ($date, $categ){
+// trie la colonne Nom avec Catégorie sauvegardée
+function get_nomasc_categ($date, $categ){ 
     global $bdd;
     $req = $bdd -> prepare("SELECT * from jeux as j, categorie as c, age as a where j.IDCateg = c.IDCategorie and j.IDAge = a.IDAge and IDCateg = '$categ' and DateDeSortie <= '$date' order by NomJeu;");
     $req -> execute();
@@ -40,6 +41,7 @@ function get_nomdesc_categ($date, $categ){
     $get_nomdesc = $req -> fetchAll();
     return $get_nomdesc;
 }
+//trie la colonne Sortie avec Catégorie sauvegardée
 function get_sortieasc_categ($date, $categ){
     global $bdd;
     $req = $bdd -> prepare("SELECT * from jeux as j, categorie as c, age as a where j.IDCateg = c.IDCategorie and j.IDAge = a.IDAge and IDCateg = '$categ' and DateDeSortie <= '$date' order by DateDeSortie;");
@@ -54,6 +56,7 @@ function get_sortiedesc_categ($date, $categ){
     $get_nomasc = $req -> fetchAll();
     return $get_nomasc;
 }
+// trie la colonne Nom sans Catégorie sauvegardée
 function get_nomasc($date){
     global $bdd;
     $req = $bdd -> prepare("SELECT * from jeux as j, categorie as c, age as a where j.IDCateg = c.IDCategorie and j.IDAge = a.IDAge and DateDeSortie <= '$date' order by NomJeu;");
@@ -68,6 +71,7 @@ function get_nomdesc($date){
     $get_nomdesc = $req -> fetchAll();
     return $get_nomdesc;
 }
+// trie la colonne Sortie sans Catégorie sauvegardée
 function get_sortieasc($date){
     global $bdd;
     $req = $bdd -> prepare("SELECT * from jeux as j, categorie as c, age as a where j.IDCateg = c.IDCategorie and j.IDAge = a.IDAge and DateDeSortie <= '$date' order by DateDeSortie;");
@@ -82,6 +86,7 @@ function get_sortiedesc($date){
     $get_nomasc = $req -> fetchAll();
     return $get_nomasc;
 }
+//trie par catégorie
 function get_bycateg($date, $categ){
     global $bdd;
     $req = $bdd -> prepare("SELECT * from jeux as j, categorie as c, age as a where j.IDCateg = c.IDCategorie and j.IDAge = a.IDAge and IDCateg = '$categ' and DateDeSortie <= '$date' order by DateDeSortie desc;");
@@ -96,13 +101,13 @@ function get_bycateg($date, $categ){
     $get_jeux = $req -> fetchAll();
     return $get_jeux;
 }
-
+// récupération des données envoyées par l'AJAX
 $status = $_POST['status'];
 $val = (isset($_POST["val"])) ? addslashes($_POST["val"]) : NULL;
 $categ = (isset($_POST["categ"])) ? addslashes($_POST["categ"]) : NULL;
 
 $date=date("Y-m-d"); //date d'aujourd'hui
-switch($status):
+switch($status): //utilise les fonctions en fonction du status, décidé sur la page listant les jeux
     case 1:
         $lstJeux = get_name($date, $val);
         break;;
@@ -142,7 +147,7 @@ switch($status):
         endif;
         break;
 endswitch;
-
+// affichage du résultat du tri
 if (count($lstJeux) == 0): ?>
     Aucun jeu ne correspond à votre recherche. <a href="jeux.php" class="lienbasique">Cliquez ici</a> pour recharger la page des jeux.
 <?php else: ?>
@@ -219,7 +224,7 @@ if (count($lstJeux) == 0): ?>
                 });
     });
     
-    $(".recherche").on('click',function(){
+    $(".recherche").on('click',function(){ // en cliquant sur une flèche, ou l'icone Recherche, envoie une requête AJAX aboutissant à un tri
         var id = $(this).attr('id');
         switch(id){
             case 'searchimg':
@@ -261,7 +266,7 @@ if (count($lstJeux) == 0): ?>
                 });
     });
     
-    $('#categ').on('change',function(){
+    $('#categ').on('change',function(){ // en changeant la catégorie de la liste déroulante, trie les jeux
         var categ = $('#categ').val();
         var val = '';
         var status = 6;

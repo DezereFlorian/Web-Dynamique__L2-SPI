@@ -3,7 +3,7 @@ session_start();
 ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8;">
 <?php
-include('connexion.php');
+include('connexion2.php');
 //include('creationMail.php');
 function get_verif($pseudo,$mdp){ //vérifie que le pseudo et le mot de passe donnés lors de la connexion correspondent à un couple pseudo/mdp de la base
     global $bdd;

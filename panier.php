@@ -117,7 +117,7 @@ endif;
                 });
     });
     
-    $('#reservation').click(function(){
+    $('#reservation').click(function(){ // déploie le datepicker, et les listes déroulantes pour effectuer la commande
         $('#time').before('<label for="date">Date :&nbsp;</label><input type="text" id="date" />');
         $('#date').datepicker({ 
             dateFormat: "yy-mm-dd"
@@ -128,7 +128,7 @@ endif;
         $('#datereservation').slideDown("slow");
     });
     
-    function validerCommande(){
+    function validerCommande(){ // valide la commande
         
         var date = $('#date').val();
         var nbmois = $('#moiscommande').val();

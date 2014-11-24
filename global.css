@@ -10,11 +10,11 @@ html {
     margin:0;
     padding:0;
     font-family: Corbel, Comic Sans Ms;
-    background: url(images/background.jpg) no-repeat center fixed;
-    -webkit-background-size: cover; /* pour Chrome et Safari */
-    -moz-background-size: cover; /* pour Firefox */
-    -o-background-size: cover; /* pour Opera */
-    background-size: cover; /* version standardisée */
+    background: url(images/background.jpg) no-repeat top fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 body{
     width:75%;
@@ -232,6 +232,7 @@ form#forminscription label, form#forminscription input{
 .detailjeu{
     width:30%;
 }
+/* css du tableau affichant les commandes dans mon_profil.php */
 .profiltable{
     width : 30%;
     border-top: 0px;
@@ -239,7 +240,7 @@ form#forminscription label, form#forminscription input{
     border-right:0px;
     border-bottom: 3px ridge #067206;
 }
-
+/* css des flèches de tri et positionnement des images servant à ça */
 .flechehaut{
     position: absolute;
     left: 5%;
@@ -262,6 +263,7 @@ th{
 #search{
     vertical-align: middle;
 }
+/* taille des images des produits et de la description */
 img.produit{
     width:90%;
 }

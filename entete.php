@@ -3,7 +3,7 @@
     
     if (isset($_SESSION['id'])): //si il y a un identifiant de connexion
         if ($_SESSION['id']==1):
-            $connect=2;
+            $connect=2; //admin -- inutile dans l'état actuel des choses
         else:
             $connect=1;
         endif;
@@ -16,7 +16,7 @@
         window.location = 'index.php'; //redirection sur l'accueil après la déconnexion
     </script>";
     <?php endif;
-    include_once('connexion.php');
+    include_once('connexion2.php');
 ?>
 <html>
     <head>

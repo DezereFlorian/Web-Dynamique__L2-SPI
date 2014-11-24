@@ -8,7 +8,7 @@
         $get_jeux = $req -> fetchAll();
         return $get_jeux;
     }
-    function get_categories(){
+    function get_categories(){ //récupère toutes les catégories
         global $bdd;
         $req = $bdd -> prepare("SELECT * from categorie");
         $req -> execute();
@@ -28,7 +28,7 @@
     
     // affichage du tableau avec tous les jeux
     ?>
-<p>
+<p> <!-- l'input de recherche -->
     <input type="search" id="search" name="search" value="Rechercher"/><img src="images/search.png" alt="search" id="searchimg" class="recherche"/>
 </p>
 <table class="tableaujeux">
@@ -110,7 +110,7 @@
                 });
     });
     
-    $(".recherche").on('click',function(){
+    $(".recherche").on('click',function(){ // en cliquant sur une flèche, ou l'icone Recherche, envoie une requête AJAX aboutissant à un tri
         var id = $(this).attr('id');
         switch(id){
             case 'searchimg':
@@ -152,7 +152,7 @@
                 });
     });
     
-    $('#categ').on('change',function(){
+    $('#categ').on('change',function(){ // en changeant la catégorie de la liste déroulante, trie les jeux
         var categ = $('#categ').val();
         var val = '';
         var status = 6;

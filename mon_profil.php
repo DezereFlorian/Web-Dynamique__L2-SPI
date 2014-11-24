@@ -8,21 +8,21 @@
 
         return $datePHP2;
     }
-    function get_nbcommande($id){
+    function get_nbcommande($id){ // récupère le nombre de commandes effectuées par le client
         global $bdd;
         $req = $bdd -> prepare("SELECT Count(*) from commande where IDClient = '$id'");
         $req -> execute();
         $get_nbcommande = $req -> fetchColumn();
         return $get_nbcommande;
     }
-    function get_commande($id){
+    function get_commande($id){ // récupère toutes les commandes du client
         global $bdd;
         $req = $bdd -> prepare("select * from commande where IDClient = '$id'");
         $req -> execute();
         $get_commmande = $req -> fetchAll();
         return $get_commmande;
     }
-    function nb_jeux_commande($idcommande){
+    function nb_jeux_commande($idcommande){ // récupère le nombre de jeux d'une commande
         global $bdd;
         $req = $bdd -> prepare("select count(*) from commandefinale where IDCommande = '$idcommande'");
         $req -> execute();
@@ -30,7 +30,7 @@
         return $nb_jeux_commande;
     }
 
-if($connect == 0): ?>
+if($connect == 0): // si pas connecté mais quand même curieux d'aller sur la page ?>
     <p>
         T'es un petit malin toi, tu veux venir ici sans être connecté ? C'est dommage que j'ai prévu ton coup. Bisous ! ♥
     </p>
@@ -44,7 +44,7 @@ if($connect == 0): ?>
     $lstCommande = get_commande($idclient);
 ?>
     <table>
-<?php
+<?php // affichage des commandes
     foreach($lstCommande as $uneCommande):
         $nb_jeux_commande = nb_jeux_commande($uneCommande['IDCommande']);
         $datecommande = dateFR($uneCommande['DateCommande']);
@@ -67,7 +67,7 @@ if($connect == 0): ?>
 ?>
 
 <script>
-    $('tr').click(function(){
+    $('tr').click(function(){ // affiche le contenu de la commande au clic sur la ligne de la commande en question
         var id = $(this).attr('id');
         $.ajax({
                   type:'POST',
