@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 24 Novembre 2014 à 01:08
+-- Généré le :  Lun 24 Novembre 2014 à 18:51
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -176,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `jeux` (
   UNIQUE KEY `ID` (`IDJeux`),
   KEY `IDCateg` (`IDCateg`),
   KEY `IDAge` (`IDAge`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Contenu de la table `jeux`
@@ -185,7 +185,8 @@ CREATE TABLE IF NOT EXISTS `jeux` (
 INSERT INTO `jeux` (`IDJeux`, `NomJeu`, `Descriptif`, `Image`, `DateDeSortie`, `Stock`, `IDCateg`, `IDAge`) VALUES
 (2, 'Uno', 'Jeu de carte très sympathique, peut se jouer de 2 à 6 joueurs', 'uno.jpg', '2006-08-20', 50, 1, 2),
 (3, 'Tomb Raider', 'Tomb Raider, le dernier.\r\nAvec des boobs et des fesses. Et aussi des jolis paysages (éventuellement).', 'tombraider.jpg', '2012-07-01', 10, 2, 6),
-(5, 'Call of Duty Bie-Zom', 'Le nouveau Call of Duty.', 'codbison.jpg', '2015-03-25', 500, 2, 6);
+(5, 'Call of Duty Bie-Zom', 'Le nouveau Call of Duty.', 'codbison.jpg', '2015-03-25', 500, 2, 6),
+(6, 'Farcry 4', 'PAN ! PAN ! PAN ! HAHA ! Jeu vidéo sympa.', 'farcry4.jpg', '2014-12-19', 20, 2, 2);
 
 --
 -- Contraintes pour les tables exportées

@@ -239,3 +239,26 @@ form#forminscription label, form#forminscription input{
     border-right:0px;
     border-bottom: 3px ridge #067206;
 }
+
+.flechehaut{
+    position: absolute;
+    left: 5%;
+    top: 35%;
+    width: 15%;
+}
+.flechebas{
+    position: absolute;
+    right: 5%;
+    top: 35%;
+    width: 15%;
+}
+th{
+    position:relative;
+}
+#searchimg{
+    width:2.6%;
+    vertical-align:middle;
+}
+#search{
+    vertical-align: middle;
+}

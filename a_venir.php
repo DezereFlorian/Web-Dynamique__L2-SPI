@@ -8,6 +8,13 @@
         $get_jeux = $req -> fetchAll();
         return $get_jeux;
     }
+    function get_categories(){
+        global $bdd;
+        $req = $bdd -> prepare("SELECT * from categorie");
+        $req -> execute();
+        $get_categories = $req -> fetchAll();
+        return $get_categories;
+    }
     function dateFR($datePHP1) // transforme la date anglaise (de la base) en date française
     {
         list($AAAA, $MM, $JJ) = explode("-", $datePHP1);
@@ -21,18 +28,32 @@
     
     // affichage du tableau avec tous les jeux
     ?>
-<table>
+<p>
+    <input type="search" id="search" name="search" value="Rechercher"/><img src="images/search.png" alt="search" id="searchimg" class="recherche"/>
+</p>
+<table class="tableaujeux">
     <tr class='titre_case'>
-        <th>Nom</th>
+        <th><img id ="nomdesc" src="images/fleche_haut.png" alt="fleche_haut" class="flechehaut recherche"/>Nom<img id ="nomasc" src="images/fleche_bas.png" alt="fleche_bas" class="flechebas recherche"/></th>
         <th>Image</th>
         <th>Description</th>
-        <th>Date de sortie</th>
-        <th>Catégorie</th>
+        <th><img id="sortiedesc" src="images/fleche_haut.png" alt="fleche_haut" class="flechehaut recherche"/>Sortie<img id="sortieasc" src="images/fleche_bas.png" alt="fleche_bas" class="flechebas recherche"/></th>
+        <th>
+        <?php $lstCateg = get_categories(); ?>
+            <select id="categ">
+                <optgroup label ="Catégorie">
+                    <option value="0" selected>Tous</option>
+                    <?php foreach($lstCateg as $uneCateg):
+                        $idcateg = $uneCateg['IDCategorie'];
+                        $nomcateg = $uneCateg['NomCateg'];?>
+                    <option value="<?php echo $idcateg; ?>"><?php echo $nomcateg; ?></option>
+                    <?php endforeach; ?>
+                </optgroup>
+            </select>
+        </th>
         <th>Age</th>
         <th></th>
     </tr>
-    <?php
-        foreach($lstJeux as $unJeu): // Pour chaque jeu, associer dans les variables correspondantes pour l'affichage
+<?php foreach($lstJeux as $unJeu): // Pour chaque jeu, associer dans les variables correspondantes pour l'affichage
             $id = $unJeu['IDJeux'];
             $nom = $unJeu['NomJeu'];
             $desc = $unJeu['Descriptif'];
@@ -67,17 +88,62 @@
 ?>
 
 <script>
-    $(".addpanier").click(function (){ //requête AJAX pour ajouter au panier un jeu d'après son identifiant
+    $(".recherche").on('click',function(){
         var id = $(this).attr('id');
+        switch(id){
+            case 'searchimg':
+                var val = $(this).prev('input').val();
+                var status = 1;
+                break;
+            case 'nomdesc':
+                var val = '';
+                var status = 2;
+                break;
+            case 'nomasc':
+                var val = '';
+                var status = 3;
+                break;
+            case 'sortiedesc':
+                var val = '';
+                var status = 4;
+                break;
+            case 'sortieasc':
+                var val = '';
+                var status = 5;
+                break;
+        }
+        var categ = $('#categ').val();
         $.ajax({
                   type:'POST',
-                  url:'gestpanier.php',
+                  url:'search_avenir.php',
                   data:{
-                      status : 1,
-                      id : id
+                      status : status,
+                      val : val,
+                      categ : categ
                   },
                   success: function(data,textStatus,jqXHR){
-                        $(data).prependTo('table');
+                        $('table').html(data);
+                  },
+                  error: function(jqXHR, textStatus,errorThrown){
+                      alert('une erreur s\'est produite');
+                  }
+                });
+    });
+    
+    $('#categ').on('change',function(){
+        var categ = $('#categ').val();
+        var val = '';
+        var status = 6;
+        $.ajax({
+                  type:'POST',
+                  url:'search_avenir.php',
+                  data:{
+                      status : status,
+                      val : val,
+                      categ : categ
+                  },
+                  success: function(data,textStatus,jqXHR){
+                        $('table').html(data);
                   },
                   error: function(jqXHR, textStatus,errorThrown){
                       alert('une erreur s\'est produite');
